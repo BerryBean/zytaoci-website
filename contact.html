@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系正窑 | Contact Zhengyao</title>
+  <meta name="description" content="联系正窑陶瓷艺术工作室，咨询产品、定制或合作。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lang-zh">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-vector.svg" alt="正窑标志">正窑 <span class="zh">陶瓷艺术工作室</span><span class="en"> Ceramic Art</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a></li>
+        <li><a href="index.html#products"><span class="zh">产品</span><span class="en">Products</span></a></li>
+        <li><a href="about.html"><span class="zh">关于</span><span class="en">About</span></a></li>
+        <li><a href="contact.html"><span class="zh">联系</span><span class="en">Contact</span></a></li>
+      </ul>
+      <button class="nav-lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+      <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <h1>
+      <span class="zh">取得联系</span>
+      <span class="en">Get in Touch</span>
+    </h1>
+    <p class="hero-subtitle zh" style="margin-top:20px;">
+      咨询产品、定制需求，或只是打声招呼——都欢迎。
+    </p>
+    <p class="hero-subtitle en" style="margin-top:20px;">
+      Product inquiries, custom orders, or just saying hello — all welcome.
+    </p>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form fade-in">
+    <form action="#" method="POST" onsubmit="alert('感谢您的留言！目前为演示表单，请通过微信或邮箱直接联系我们。'); return false;">
+      <label for="name"><span class="zh">姓名</span><span class="en">Name</span></label>
+      <input type="text" id="name" name="name" placeholder="您的姓名" required>
+
+      <label for="email"><span class="zh">邮箱</span><span class="en">Email</span></label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+      <label for="subject"><span class="zh">主题</span><span class="en">Subject</span></label>
+      <input type="text" id="subject" name="subject" placeholder="咨询 / 定制 / 合作 / 其他">
+
+      <label for="message"><span class="zh">留言内容</span><span class="en">Message</span></label>
+      <textarea id="message" name="message" placeholder="请告诉我们您的需求…" required></textarea>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; font-size:17px; padding:14px;">
+        <span class="zh">发送留言</span><span class="en">Send Message</span>
+      </button>
+    </form>
+
+    <div style="margin-top:60px; text-align:center; color:var(--color-text-secondary); font-size:15px; line-height:2;">
+      <p class="zh"><strong>微信：</strong>Cinta1240406153</p>
+      <p class="en"><strong>WeChat:</strong> Cinta1240406153</p>
+      <p class="zh"><strong>邮箱：</strong>wongberry@icloud.com</p>
+      <p class="en"><strong>Email:</strong> wongberry@icloud.com</p>
+      <p class="zh"><strong>地址：</strong>广东潮州</p>
+      <p class="en"><strong>Address:</strong> Chaozhou, Guangdong, China</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h4><span class="zh">正窑</span><span class="en">Zhengyao</span></h4>
+        <a href="index.html"><span class="zh">首页</span><span class="en">Home</span></a>
+        <a href="about.html"><span class="zh">品牌故事</span><span class="en">Our Story</span></a>
+        <a href="contact.html"><span class="zh">联系我们</span><span class="en">Contact</span></a>
+      </div>
+      <div>
+        <h4><span class="zh">产品线</span><span class="en">Collections</span></h4>
+        <a href="products/tea-set.html"><span class="zh">茶具系列</span><span class="en">Tea Collection</span></a>
+        <a href="products/incense-set.html"><span class="zh">香道系列</span><span class="en">Incense Collection</span></a>
+      </div>
+      <div>
+        <h4><span class="zh">联系方式</span><span class="en">Get in Touch</span></h4>
+        <a href="mailto:wongberry@icloud.com">wongberry@icloud.com</a>
+        <a href="contact.html"><span class="zh">发送消息</span><span class="en">Send a Message</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 正窑陶瓷艺术工作室 Zhengyao Ceramic Art Studio</span>
+      <span><span class="zh">网站由 WorkBuddy 生成</span><span class="en">Website generated by WorkBuddy</span></span>
+      <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2026080008号</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 小红书推广 — 千年定窑，用 3D 打印机做出来</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: #F8F4EF;
+  color: #2C2C2C;
+  line-height: 1.7;
+  padding: 20px;
+}
+.header {
+  text-align: center;
+  padding: 40px 0 30px;
+  border-bottom: 1px solid #E8E2D9;
+  margin-bottom: 40px;
+}
+.header h1 { font-size: 24px; font-weight: 600; color: #8B7355; }
+.header p { font-size: 14px; color: #999; margin-top: 8px; }
+
+.grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(139,115,85,0.08);
+  transition: transform .2s;
+}
+.card:hover { transform: translateY(-3px); }
+.card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+.card-label {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #8B7355;
+  background: #FAF8F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-section {
+  max-width: 800px;
+  margin: 50px auto 40px;
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(139,115,85,0.08);
+}
+.copy-section h2 {
+  font-size: 18px;
+  color: #8B7355;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#copyText {
+  width: 100%;
+  min-height: 200px;
+  padding: 16px;
+  border: 1px solid #E8E2D9;
+  border-radius: 8px;
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #333;
+  resize: vertical;
+  background: #FAFAFA;
+  white-space: pre-wrap;
+}
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 12px 28px;
+  background: #8B7355;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .2s;
+  font-family: inherit;
+}
+.copy-btn:hover { background: #6d5940; }
+.copy-btn.copied { background: #4CAF50; }
+
+.tags-section {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px 32px;
+  box-shadow: 0 2px 12px rgba(139,115,85,0.08);
+}
+.tags-section h2 { font-size: 16px; color: #8B7355; margin-bottom: 12px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  padding: 5px 14px;
+  background: #F0EBE3;
+  color: #8B7355;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.tag:hover { background: #8B7355; color: white; }
+
+.tips {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding: 20px 28px;
+  background: #FFF9ED;
+  border-left: 4px solid #8B7355;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+}
+.tips strong { color: #8B7355; }
+
+@media(max-width:700px) {
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .header h1 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Day 1 · 小红书推广内容包</h1>
+  <p>主题：千年定窑，用 3D 打印机做出来，会怎样？</p>
+</div>
+
+<div class="grid" id="imageGrid"></div>
+
+<div class="copy-section">
+  <h2>📋 文案</h2>
+  <textarea id="copyText"></textarea><br>
+  <button class="copy-btn" onclick="doCopy()">📋 一键复制全文</button>
+</div>
+
+<div class="tags-section">
+  <h2>🏷️ 标签</h2>
+  <div class="tags" id="tagsArea"></div>
+</div>
+
+<div class="tips">
+  <strong>📌 发布建议：</strong> 每天上午 10:00–11:00 或晚间 19:00–21:00 发布效果最佳。图片按封面 → 茶具 → 香道套件 → 对比卡 的顺序上传。发布后在评论区第一时间自评一条引导互动的评论。
+</div>
+
+<script>
+const images = [
+  { file:'day01-promo-01-cover.png', label:'① 封面 — 品牌标题卡', role:'cover' },
+  { file:'day01-promo-02-tea-set.png', label:'② 茶具 — 经典壶杯套件', role:'' },
+  { file:'day01-promo-03-incense-set.png', label:'③ 香道 — 经典炉瓶三事套件', role:'' },
+  { file:'day01-promo-04-concept.png', label:'④ 概念 — 古今对比卡', role:'' }
+];
+
+const title = `千年定窑，用 3D 打印机做出来，会怎样？🏺✨`;
+
+const body = `我们是「正窑」。
+一个把宋代定窑白瓷，用 3D 打印机做出来的工作室。
+
+不是噱头。
+泥，还是河北曲阳那片泥。
+釉，还是透明的定窑釉。
+窑火，还是 1280°C。
+变的，只是「成形」这一步。
+从一个工匠的手，变成一台 3D 打印机的手。
+
+丨
+丨
+我们做的是「经得起时间凝视」的器物——
+不是快消品，不想一年后就碎成渣。
+手能摸到的弧度，数学能算到微米级。
+双重淬炼：数字建模的精确 + 1280°C 窑烧的不可控。
+
+每一件，都是独一无二的。
+打印路径留下的细微纹理，是这支笔的「签名」。
+上釉时手的角度，决定泪痕在哪里。
+窑火里 48 小时，瓷土自己决定最终的颜色。
+
+宋人不懂 G2 曲线，但宋人懂美。
+我们只是换了一种方式，把那个美做出来。
+跨越千年的对话。同样的温度。同样的泥。
+只是成形的人，从一个人，变成了一台机器，
+和一群仍然愿意安静做器物的人。
+
+🏺 经典壶杯套件
+🏺 经典炉瓶三事套件
+都在主页。点进去看。`;
+
+const tags = ['#正窑','#定窑白瓷','#3D打印陶瓷','#数字工艺','#宋代美学','#茶生活','#香道','#独立的器物','#手工精神','#正窑出品'];
+
+// Render images
+const basePath = location.pathname.replace(/[^/]*$/, '');
+document.getElementById('imageGrid').innerHTML =
+  images.map(img => `<div class="card"><img src="${basePath}${img.file}" alt="${img.label}"><div class="card-label"><span>${img.label}</span></div></div>`).join('');
+
+// Render copy text
+document.getElementById('copyText').value = `${title}\n\n${body}`;
+
+// Render tags
+document.getElementById('tagsArea').innerHTML =
+  tags.map(t => `<span class="tag" onclick="navigator.clipboard.writeText(this.textContent)">${t}</span>`).join('');
+
+function doCopy() {
+  const full = title + '\n\n' + body + '\n\n' + tags.join(' ');
+  navigator.clipboard.writeText(full).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✅ 已复制！可直接粘贴到小红书';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 一键复制全文';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>

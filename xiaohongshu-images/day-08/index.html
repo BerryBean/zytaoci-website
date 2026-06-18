@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>著瓶不是花瓶 — 正窑陶瓷艺术工作室</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#F5F0E8; font-family:'Noto Sans SC','PingFang SC',sans-serif; color:#333; }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+  .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+  .page-header { text-align:center; padding:80px 0 48px; }
+  .page-header h1 { font-size:22px; font-weight:700; color:#3d2b1a; letter-spacing:3px; }
+  .page-header .sub { font-size:14px; color:#7a6b4e; margin-top:12px; letter-spacing:2px; }
+  .feed { display:flex; flex-direction:column; gap:32px; }
+  .promo-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.08); cursor:pointer; transition:transform 0.2s; }
+  .promo-card:hover { transform:translateY(-4px); }
+  .promo-card img { width:100%; display:block; }
+  .promo-card .card-body { padding:20px 24px 24px; }
+  .promo-card .card-title { font-size:17px; font-weight:700; color:#3d2b1a; margin-bottom:8px; font-family:'Noto Serif SC',serif; }
+  .promo-card .card-excerpt { font-size:14px; color:#666; line-height:1.8; }
+  .promo-card .card-meta { font-size:12px; color:#999; margin-top:12px; letter-spacing:1px; }
+  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:200; justify-content:center; align-items:center; }
+  .modal.active { display:flex; }
+  .modal img { max-width:90vw; max-height:90vh; object-fit:contain; }
+  .modal .close { position:absolute; top:24px; right:32px; font-size:32px; color:#fff; cursor:pointer; }
+  .footer { text-align:center; padding:48px 20px; font-size:13px; color:#ccc; }
+  @media (max-width:480px) {
+    .container { padding:24px 12px 60px; }
+    .page-header { padding:72px 0 32px; }
+    .page-header h1 { font-size:18px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+<div class="container">
+  <div class="page-header">
+    <h1>著瓶不是花瓶</h1>
+    <div class="sub">Day 8 — 单品深度介绍</div>
+  </div>
+
+  <div class="feed">
+    <div class="promo-card" onclick="openModal('card-01-cover.png')">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="card-body">
+        <div class="card-title">著瓶不是花瓶。它是香道里的收纳大师。</div>
+        <div class="card-excerpt">来，先做个测试。看到这张图——你觉得这是什么？花瓶？笔筒？都不是……</div>
+        <div class="card-meta">2026.06.13 · 4 张卡片</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-02-test.png')">
+      <img src="card-02-test.png" alt="灵魂拷问">
+      <div class="card-body">
+        <div class="card-title">来，先做个测试</div>
+        <div class="card-excerpt">花瓶？笔筒？装饰摆件？都不是。它叫「著瓶」，是炉瓶三事里的「瓶」……</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-03-function.png')">
+      <img src="card-03-function.png" alt="功能说明">
+      <div class="card-body">
+        <div class="card-title">它的真正用途</div>
+        <div class="card-excerpt">收纳香箸与香铲。打香篆之前，从著瓶中取出香箸。理平香粉，压紧香篆……</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-04-closing.png')">
+      <img src="card-04-closing.png" alt="收尾互动">
+      <div class="card-body">
+        <div class="card-title">你看第一眼</div>
+        <div class="card-excerpt">真的以为这是花瓶吗？（老实回答）</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="close" onclick="closeModal()">&times;</div>
+  <img id="modal-img" src="">
+</div>
+
+<div class="footer">© 2026 正窑陶瓷艺术工作室 · 数字时代的手工精神工房</div>
+
+<script>
+function openModal(src) {
+  document.getElementById('modal-img').src = src;
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+
+</body>
+</html>

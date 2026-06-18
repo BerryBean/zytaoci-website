@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 5 · 下午四点，光线最好 — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; line-height:1.5; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+    .promo-card .card-body p { margin-bottom:16px; }
+    .promo-card .card-body hr {
+      border:none; border-top:1px solid #E8E2D9; margin:24px 0;
+    }
+
+    /* === Modal === */
+    .modal {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.85); z-index:1000;
+      justify-content:center; align-items:center;
+      cursor:zoom-out;
+    }
+    .modal.active { display:flex; }
+    .modal img {
+      max-width:90vw; max-height:90vh;
+      border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.4);
+    }
+    .modal .close-btn {
+      position:absolute; top:24px; right:28px;
+      width:40px; height:40px; border-radius:50%;
+      background:rgba(255,255,255,0.15); color:white;
+      border:none; font-size:20px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'37d06266c87c41b4b270e2e747f26394'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>下午四点，光线最好。<br>茶席上，只有这些就够了。</h1>
+      <p>生活美学 · 发布于 2026.06.10</p>
+    </div>
+
+    <!-- Card 1: Cover -->
+    <div class="promo-card">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">下午四点<br>光线最好</div>
+        <div class="card-body">茶席上，只有这些就够了。</div>
+      </div>
+    </div>
+
+    <!-- Card 2: 茶席场景 -->
+    <div class="promo-card">
+      <img src="card-02-scene.png" alt="茶席场景">
+      <div class="text-content">
+        <div class="step-tag">茶 席</div>
+        <div class="card-title">不需要<br>很多东西</div>
+        <div class="card-body">
+          一张素色的麻布茶席。<br>
+          一把白瓷茶壶，壶嘴刚好对齐杯沿。<br>
+          四个小茶杯，排成一行。<br>
+          窗外是四点的光，斜斜地照进来，刚好打在壶身上。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 茶壶特写（深色背景） -->
+    <div class="promo-card" style="background:#3C2F1E;">
+      <img src="card-03-teapot.png" alt="茶壶特写">
+      <div class="text-content">
+        <div class="step-tag" style="background:transparent; border:1px solid rgba(200,170,120,0.55); color:rgba(200,170,120,0.9);">茶 壶 特 写</div>
+        <div class="card-title" style="color:#F5EDE0;">喝茶这件事</div>
+        <div class="card-body" style="color:rgba(255,255,255,0.6);">
+          说到底不是<span style="color:rgba(200,170,120,0.9);">品鉴</span>，是<span style="color:rgba(200,170,120,0.9);">陪伴</span>。<br>
+          一只好茶壶不会抢你的注意力。<br>
+          它就安静地在那里，<br>
+          每次你伸手的时候，重心刚好、断水刚好、温度刚好。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 四个茶杯 -->
+    <div class="promo-card">
+      <img src="card-04-cups.png" alt="四个茶杯">
+      <div class="text-content" style="text-align:center;">
+        <div class="step-tag">器 物</div>
+        <div class="card-title">四个杯子<br>不多不少</div>
+        <div class="card-body">
+          刚好。<br>
+          没有多余的装饰，没有喧宾夺主的造型。<br>
+          杯子就做杯子该做的事——<br>
+          <strong>盛茶，暖手，静置。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: 设计理念（深色背景） -->
+    <div class="promo-card" style="background:#3C2F1E;">
+      <img src="card-05-design.png" alt="设计理念">
+      <div class="text-content">
+        <div class="step-tag" style="background:transparent; border:1px solid rgba(200,170,120,0.55); color:rgba(200,170,120,0.9);">设 计 理 念</div>
+        <div class="card-title" style="color:#F5EDE0;">不是让它<br>「惊艳」你</div>
+        <div class="card-body" style="color:rgba(255,255,255,0.6);">
+          而是让它<span style="color:rgba(200,170,120,0.9);">「舒服」</span>你。<br><br>
+          这是我们在设计茶壶时最在意的事。<br>
+          不追求第一眼的震撼，<br>
+          追求的是第<strong>一百</strong>眼的耐看。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 收尾 -->
+    <div class="promo-card">
+      <img src="card-06-ending.png" alt="收尾互动">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">器物不语</div>
+        <div class="card-body">心知冷暖</div>
+      </div>
+    </div>
+
+    <!-- 原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p>不需要很多东西。</p>
+          <p>一张素色的麻布茶席。一把白瓷茶壶，壶嘴刚好对齐杯沿。四个小茶杯，排成一行。窗外是四点的光，斜斜地照进来，刚好打在壶身上。</p>
+          <p>壶身是暖的。因为有茶。因为有光。</p>
+          <p>喝茶这件事，说到底不是品鉴，是陪伴。一只好茶壶不会抢你的注意力。它就安静地在那里，每次你伸手的时候，重心刚好、断水刚好、温度刚好。</p>
+          <p>不多不少。</p>
+          <p>这是我们在设计茶壶时最在意的事——不是让它「惊艳」你，而是让它「舒服」你。</p>
+          <hr>
+          <p style="text-align:center; color:#8B7355; font-size:18px; letter-spacing:2px;">器物不语，心知冷暖。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 标签 -->
+    <div class="promo-card">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-body" style="color:#8B7355; letter-spacing:3px;">
+          #茶席日常 &nbsp; #茶生活 &nbsp; #下午茶时光
+          <br>#白瓷茶具 &nbsp; #慢生活 &nbsp; #器物之美
+          <br>#正窑陶瓷 &nbsp; #3D打印陶瓷
+        </div>
+      </div>
+    </div>
+
+    <!-- 互动引导 -->
+    <div class="promo-card">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">你一天中<br>什么时间喝茶最舒服？</div>
+        <div class="card-body" style="margin-top:12px;">来评论区聊聊 ☕</div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imgModal" onclick="closeModal()">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="" alt="放大预览">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imgModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

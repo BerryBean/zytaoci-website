@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 07 - 过程图方案预览（真实打印机参考版）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; color: #eee; font-family: "PingFang SC", sans-serif; }
+  .header { text-align: center; padding: 30px 20px 10px; }
+  .header h1 { font-size: 22px; letter-spacing: 2px; color: #d4c5a9; }
+  .header p { font-size: 13px; color: #888; margin-top: 8px; }
+  .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 30px 20px 60px; }
+  .card { background: #262626; border-radius: 12px; overflow: hidden; width: 420px; cursor: pointer; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-4px); }
+  .card img { width: 100%; display: block; }
+  .card .info { padding: 16px 20px; }
+  .card .info h2 { font-size: 15px; color: #d4c5a9; margin-bottom: 6px; }
+  .card .info p { font-size: 12px; color: #999; line-height: 1.6; }
+  .dim { color: #666; font-size: 11px; }
+  /* lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; justify-content: center; align-items: center; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 8px; }
+  .lightbox .close { position: absolute; top: 24px; right: 32px; font-size: 32px; color: #ccc; cursor: pointer; }
+  .lightbox .close:hover { color: #fff; }
+  .lightbox .label { position: absolute; bottom: 32px; color: #aaa; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Day 07 · 工艺过程图方案预览</h1>
+  <p>参考真实打印机重新生成 · 点击图片放大查看细节</p>
+</div>
+
+<div class="grid">
+
+  <div class="card" onclick="openLb('v1')">
+    <img src="process-v1-strip-v2.png" alt="方案V1">
+    <div class="info">
+      <h2>方案 V1 — 竖排四格条漫</h2>
+      <p>左到右纵向四格，每格一个步骤，顶部有步骤标签。<br><span class="dim">适合：卡片2-5 分割展示，或者整图做封面背景</span></p>
+    </div>
+  </div>
+
+  <div class="card" onclick="openLb('v3')">
+    <img src="process-v3-grid-v2.png" alt="方案V3">
+    <div class="info">
+      <h2>方案 V3 — 2×2 网格拼贴</h2>
+      <p>四宫格布局，带手绘感边框和步骤标签，艺术感强。<br><span class="dim">适合：卡片内嵌展示，或做封面背景</span></p>
+    </div>
+  </div>
+
+  <div class="card" onclick="openLb('v4')">
+    <img src="process-v4-centered-v2.png" alt="方案V4">
+    <div class="info">
+      <h2>方案 V4 — 产品居中 + 四角步骤</h2>
+      <p>成品茶壶居中，四角环绕四个步骤 vignette，视觉冲击强。<br><span class="dim">适合：封面卡片背景（card-01）或收尾卡片</span></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="lightbox" id="lb">
+  <span class="close" onclick="closeLb()">&times;</span>
+  <img id="lb-img" src="" alt="">
+  <div class="label" id="lb-label"></div>
+</div>
+
+<script>
+const map = {
+  v1: ['process-v1-strip-v2.png', '方案 V1 — 竖排四格条漫'],
+  v3: ['process-v3-grid-v2.png',   '方案 V3 — 2×2 网格拼贴'],
+  v4: ['process-v4-centered-v2.png','方案 V4 — 产品居中 + 四角步骤'],
+};
+function openLb(k) {
+  document.getElementById('lb-img').src = map[k][0];
+  document.getElementById('lb-label').textContent = map[k][1];
+  document.getElementById('lb').classList.add('active');
+}
+function closeLb() { document.getElementById('lb').classList.remove('active'); }
+document.getElementById('lb').addEventListener('click', function(e) {
+  if (e.target === this) closeLb();
+});
+</script>
+
+</body>
+</html>

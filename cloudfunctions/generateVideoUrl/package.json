@@ -1,0 +1,9 @@
+{
+  "name": "generate-video-url",
+  "version": "1.0.0",
+  "description": "动态生成视频签名链接",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^3.16.0"
+  }
+}

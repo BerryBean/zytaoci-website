@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正窑 · 小红书 15 天发布日历 | Zhengyao Xiaohongshu Calendar</title>
+  <meta name="description" content="正窑陶瓷艺术工作室小红书 15 天宣传文案发布日历。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory:       #F8F4EF;
+      --warm-white:   #FAF7F2;
+      --ink:          #2C2C2C;
+      --soft-ink:     #555555;
+      --border:       #E8E2D9;
+      --accent:       #8B7355;
+      --tag-product:  #8B7355;
+      --tag-craft:    #6B7B6B;
+      --tag-story:    #8B6B5B;
+      --tag-life:     #7B8B6B;
+      --font-serif:   'Noto Serif SC', 'Songti SC', serif;
+      --font-sans:    'Noto Sans SC', 'PingFang SC', sans-serif;
+      --font-mono:    'SF Mono', 'Menlo', monospace;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--warm-white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Header ---- */
+    .cal-header {
+      text-align: center;
+      padding: 60px 24px 40px;
+      background: var(--ivory);
+    }
+    .cal-header-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .cal-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .cal-header .sub {
+      font-size: 14px;
+      color: var(--soft-ink);
+      letter-spacing: 1px;
+    }
+
+    /* ---- Legend ---- */
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 20px 24px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--soft-ink);
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .legend-dot.product { background: var(--tag-product); }
+    .legend-dot.craft   { background: var(--tag-craft); }
+    .legend-dot.story   { background: var(--tag-story); }
+    .legend-dot.life    { background: var(--tag-life); }
+
+    /* ---- Grid ---- */
+    .calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    /* ---- Card ---- */
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .card-header {
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-day {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .card-time {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--soft-ink);
+      background: var(--ivory);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 0 20px;
+      text-transform: uppercase;
+    }
+    .card-tag.product { background: rgba(139,115,85,0.12); color: var(--tag-product); }
+    .card-tag.craft   { background: rgba(107,123,107,0.12); color: var(--tag-craft); }
+    .card-tag.story   { background: rgba(139,107,91,0.12); color: var(--tag-story); }
+    .card-tag.life    { background: rgba(123,139,107,0.12); color: var(--tag-life); }
+
+    .card-body {
+      padding: 0 20px 20px;
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--soft-ink);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-hashtag {
+      font-size: 11px;
+      color: var(--soft-ink);
+      opacity: 0.7;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 640px) {
+      .calendar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cal-header">
+  <div class="cal-header-label">Xiaohongshu Content Calendar</div>
+  <h1>正窑陶瓷艺术工作室</h1>
+  <p class="sub">小红书 15 天发布日历 · 每日 1 篇</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot product"></span> 产品种草</div>
+  <div class="legend-item"><span class="legend-dot craft"></span> 工艺揭秘</div>
+  <div class="legend-item"><span class="legend-dot story"></span> 品牌故事</div>
+  <div class="legend-item"><span class="legend-dot life"></span> 生活美学</div>
+</div>
+
+<div class="calendar">
+
+  <!-- Day 1 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 1</span>
+      <span class="card-time">20:30</span>
+    </div>
+    <span class="card-tag product">产品种草</span>
+    <div class="card-body">
+      <div class="card-title">千年定窑，用 3D 打印机做出来，会怎样？</div>
+      <div class="card-desc">品牌亮相。定窑白瓷 + 3D 打印 = ？制造好奇，定调「数字时代的手工精神工房」。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#正窑陶瓷</span>
+        <span class="card-hashtag">#3D打印陶瓷</span>
+        <span class="card-hashtag">#定窑白瓷</span>
+        <span class="card-hashtag">#新中式器物</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 2</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag craft">工艺揭秘</span>
+    <div class="card-body">
+      <div class="card-title">一只 3D 打印茶壶，要经历 4 步，每步缺一不可</div>
+      <div class="card-desc">展示四步核心工艺：数字建模 → 3D 打印 → 手工上釉 → 1280°C 窑烧。建立专业信任。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#3D打印瓷器</span>
+        <span class="card-hashtag">#1280度窑烧</span>
+        <span class="card-hashtag">#手工上釉</span>
+        <span class="card-hashtag">#陶瓷制作过程</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 3</span>
+      <span class="card-time">20:30</span>
+    </div>
+    <span class="card-tag product">产品种草</span>
+    <div class="card-body">
+      <div class="card-title">一只好茶壶，有三个你注意不到的巧思</div>
+      <div class="card-desc">拆解设计细节：重心计算、中空夹壁隔热、微米级密合。让读者对产品产生「原来如此」的好奇。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#茶壶推荐</span>
+        <span class="card-hashtag">#茶具设计</span>
+        <span class="card-hashtag">#3D打印茶具</span>
+        <span class="card-hashtag">#器物之美</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 4</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag story">品牌故事</span>
+    <div class="card-body">
+      <div class="card-title">宋代工匠不知道 G2 曲线，但他们做对了同一件事</div>
+      <div class="card-desc">品牌核心叙事——传统与科技不是对抗，是对话。把千年的温润翻译成数学。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#宋代定窑</span>
+        <span class="card-hashtag">#3D打印与传统</span>
+        <span class="card-hashtag">#数字工艺</span>
+        <span class="card-hashtag">#跨时空对话</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 5</span>
+      <span class="card-time">16:00</span>
+    </div>
+    <span class="card-tag life">生活美学</span>
+    <div class="card-body">
+      <div class="card-title">下午四点，光线最好。茶席上，只有这些就够了。</div>
+      <div class="card-desc">情感共鸣式生活方式内容。茶壶的陪伴感、阳光在茶席上的温度。引发读者「我也想要这样」的情绪。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#茶席日常</span>
+        <span class="card-hashtag">#茶生活</span>
+        <span class="card-hashtag">#下午茶时光</span>
+        <span class="card-hashtag">#慢生活</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 6</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag product">产品种草</span>
+    <div class="card-body">
+      <div class="card-title">炉、瓶、盒。三件事，古人叫「炉瓶三事」</div>
+      <div class="card-desc">香道文化科普 + 三件套介绍。香炉品香、著瓶收纳、香粉盒密封。一整套完整的香道秩序。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#香道</span>
+        <span class="card-hashtag">#炉瓶三事</span>
+        <span class="card-hashtag">#香道入门</span>
+        <span class="card-hashtag">#3D打印香具</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 7 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 7</span>
+      <span class="card-time">20:30</span>
+    </div>
+    <span class="card-tag craft">工艺揭秘</span>
+    <div class="card-body">
+      <div class="card-title">为什么不手工做？——最常被问的问题，今天回答</div>
+      <div class="card-desc">直面质疑。坦诚说明：不是取代手工，是回答手工无法回答的问题。打印只是四步中的一步。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#3D打印陶瓷</span>
+        <span class="card-hashtag">#手工艺</span>
+        <span class="card-hashtag">#匠人精神</span>
+        <span class="card-hashtag">#数字制造</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 8 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 8</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag product">产品种草</span>
+    <div class="card-body">
+      <div class="card-title">著瓶不是花瓶。它是香道里的收纳大师。</div>
+      <div class="card-desc">打破误解。展示著瓶的真正用途——收纳香著与香铲。单品的秩序感设计细节。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#著瓶</span>
+        <span class="card-hashtag">#香道入门</span>
+        <span class="card-hashtag">#香道用具</span>
+        <span class="card-hashtag">#炉瓶三事</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 9 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 9</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag craft">工艺揭秘</span>
+    <div class="card-body">
+      <div class="card-title">3D 打印只是成型。上釉这一步，是手的温度。</div>
+      <div class="card-desc">展示手工环节。浸釉的手感、釉面流动、1280°C 中自然流淌的「泪痕」纹理。人存在的意义。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#手工上釉</span>
+        <span class="card-hashtag">#定窑泪痕</span>
+        <span class="card-hashtag">#陶瓷工艺</span>
+        <span class="card-hashtag">#匠人手工</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 10 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 10</span>
+      <span class="card-time">20:30</span>
+    </div>
+    <span class="card-tag life">生活美学</span>
+    <div class="card-body">
+      <div class="card-title">香事十分钟：炉瓶三事的正确打开方式</div>
+      <div class="card-desc">使用教程。理灰 → 打篆 → 品香 → 收工，四步十分钟。降低香道入门的心理门槛。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#香道入门</span>
+        <span class="card-hashtag">#打香篆</span>
+        <span class="card-hashtag">#十分钟治愈</span>
+        <span class="card-hashtag">#慢生活</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 11 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 11</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag story">品牌故事</span>
+    <div class="card-body">
+      <div class="card-title">从河北曲阳的泥土，到你手中的茶杯——泥的旅程</div>
+      <div class="card-desc">完整叙事弧线。泥土 → 建模 → 打印 → 上釉 → 烧成 → 你的手中。每步都有意义。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#定窑</span>
+        <span class="card-hashtag">#河北曲阳</span>
+        <span class="card-hashtag">#器物故事</span>
+        <span class="card-hashtag">#从泥到瓷</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 12 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 12</span>
+      <span class="card-time">20:30</span>
+    </div>
+    <span class="card-tag product">产品种草</span>
+    <div class="card-body">
+      <div class="card-title">香粉盒的盖子，合上那一瞬间——微米级的浪漫</div>
+      <div class="card-desc">单品深度。微米级密合的手感叙事，收缩补偿的数学精度。不是冷冰冰的数据，是情感故事。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#香粉盒</span>
+        <span class="card-hashtag">#微米级精度</span>
+        <span class="card-hashtag">#匠心设计</span>
+        <span class="card-hashtag">#器物细节</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 13 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 13</span>
+      <span class="card-time">20:00</span>
+    </div>
+    <span class="card-tag craft">工艺揭秘</span>
+    <div class="card-body">
+      <div class="card-title">宋代五大名窑，为什么我们只选定窑？</div>
+      <div class="card-desc">材料选择的品牌逻辑。汝官哥钧定，各有其美。但只有定窑的「安静」符合品牌性格。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#宋代五大名窑</span>
+        <span class="card-hashtag">#定窑白瓷</span>
+        <span class="card-hashtag">#象牙白</span>
+        <span class="card-hashtag">#陶瓷知识</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 14 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 14</span>
+      <span class="card-time">16:00</span>
+    </div>
+    <span class="card-tag life">生活美学</span>
+    <div class="card-body">
+      <div class="card-title">用手机给你的茶具拍出「静」的感觉——3 个技巧</div>
+      <div class="card-desc">互动教程。侧光、留白、降曝光。鼓励读者拍自己的茶具并发评论互动，带动 UGC。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#手机摄影</span>
+        <span class="card-hashtag">#器物摄影</span>
+        <span class="card-hashtag">#茶具拍摄</span>
+        <span class="card-hashtag">#静物摄影</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 15 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-day">Day 15</span>
+      <span class="card-time">21:00</span>
+    </div>
+    <span class="card-tag story">品牌故事</span>
+    <div class="card-body">
+      <div class="card-title">不做快消品。做经得起时间凝视的东西。</div>
+      <div class="card-desc">品牌精神终章。器物之美是漫长岁月的陪伴。不是一次性的惊艳。晚安。</div>
+      <div class="card-hashtags">
+        <span class="card-hashtag">#正窑陶瓷</span>
+        <span class="card-hashtag">#器物之美</span>
+        <span class="card-hashtag">#经得起时间</span>
+        <span class="card-hashtag">#不做快消品</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

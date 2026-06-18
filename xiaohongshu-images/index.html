@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正窑 · 动态</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+      color: #2C2C2C;
+      min-height: 100vh;
+    }
+
+    /* ===== 顶部导航 ===== */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139,115,85,0.15);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2C2C2C;
+      letter-spacing: 6px;
+    }
+    .top-bar .logo span {
+      color: #8B7355;
+    }
+    .top-bar .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .top-bar .nav-links a {
+      font-size: 14px;
+      color: #888;
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: color 0.2s;
+    }
+    .top-bar .nav-links a:hover {
+      color: #8B7355;
+    }
+
+    /* ===== 主容器 ===== */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ===== 页面标题区 ===== */
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-top: 20px;
+    }
+    .page-header .brand-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2C2C2C;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 14px;
+      color: #999;
+      letter-spacing: 2px;
+    }
+
+    /* ===== 动态卡片 ===== */
+    .post-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .post-card:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+
+    /* 缩略图横向滚动区 */
+    .thumb-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(139,115,85,0.3) transparent;
+    }
+    .thumb-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .thumb-scroll::-webkit-scrollbar-thumb {
+      background: rgba(139,115,85,0.3);
+      border-radius: 2px;
+    }
+    .thumb-scroll img {
+      width: 120px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .thumb-scroll img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* 文字内容区 */
+    .post-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2C2C2C;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .post-date {
+      font-size: 13px;
+      color: #bbb;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .post-excerpt {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .post-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #8B7355;
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-weight: 500;
+      transition: gap 0.2s;
+    }
+    .post-link:hover {
+      gap: 10px;
+    }
+
+    /* ===== 底部分隔线 ===== */
+    .footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      font-size: 13px;
+      color: #ccc;
+      letter-spacing: 4px;
+    }
+
+    /* ===== 模态框（图片放大） ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+    .modal .close-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal .close-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 480px) {
+      .container { padding: 20px 12px 60px; }
+      .post-card { padding: 20px; }
+      .thumb-scroll img { width: 100px; height: 150px; }
+      .post-title { font-size: 17px; }
+      .top-bar { padding: 0 16px; }
+      .top-bar .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+    <div class="top-bar">
+    <div class="logo">正窑 <span>·</span> 动态</div>
+    <div class="nav-links">
+      <a href="../index.html" target="_blank">官网</a>
+    </div>
+  </div>
+
+  <!-- 主内容 -->
+  <div class="container">
+
+    <!-- 页面标题 -->
+    <div class="page-header">
+      <div class="brand-icon">🏺</div>
+      <h1>正窑 · 动态</h1>
+      <p>数字时代的手工精神工房</p>
+    </div>
+
+    <!-- ===== 动态列表 ===== -->
+    <div id="posts">
+
+      <!-- Day 9 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-09/thumb_card-01-cover.png" alt="上釉是手的温度" onclick="openModal('day-09/card-01-cover.png')">
+          <img src="day-09/thumb_card-02-secret.png" alt="素坯的秘密" onclick="openModal('day-09/card-02-secret.png')">
+          <img src="day-09/thumb_card-03-tear.png" alt="泪痕纹理" onclick="openModal('day-09/card-03-tear.png')">
+          <img src="day-09/thumb_card-04-soul.png" alt="形与魂" onclick="openModal('day-09/card-04-soul.png')">
+        </div>
+        <div class="post-title">3D 打印只是成型。上釉这一步，是手的温度。</div>
+        <div class="post-date">发布于 2026.06.13</div>
+        <div class="post-excerpt">
+          有个细节，很多人不知道。3D 打印完成的只是「素坯」——粗糙的、未烧制的泥胎。其中最难、也最美的，是上釉……
+        </div>
+        <a class="post-link" href="day-09/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 8 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-08/thumb_card-01-cover.png" alt="著瓶不是花瓶" onclick="openModal('day-08/card-01-cover.png')">
+          <img src="day-08/thumb_card-02-test.png" alt="灵魂拷问" onclick="openModal('day-08/card-02-test.png')">
+          <img src="day-08/thumb_card-03-function.png" alt="功能说明" onclick="openModal('day-08/card-03-function.png')">
+          <img src="day-08/thumb_card-04-closing.png" alt="收尾互动" onclick="openModal('day-08/card-04-closing.png')">
+        </div>
+        <div class="post-title">著瓶不是花瓶。它是香道里的收纳大师。</div>
+        <div class="post-date">发布于 2026.06.13</div>
+        <div class="post-excerpt">
+          来，先做个测试。看到这张图——你觉得这是什么？花瓶？笔筒？都不是。它叫「著瓶」，是炉瓶三事里的「瓶」……
+        </div>
+        <a class="post-link" href="day-08/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-07/thumb_card-01-cover.png" alt="封面" onclick="openModal('day-07/card-01-cover.png')">
+          <img src="day-07/thumb_card-02-questions.png" alt="灵魂拷问" onclick="openModal('day-07/card-02-questions.png')">
+          <img src="day-07/thumb_card-03-print.png" alt="手工做不了的事" onclick="openModal('day-07/card-03-print.png')">
+          <img src="day-07/thumb_card-04-steps.png" alt="四步工艺" onclick="openModal('day-07/card-04-steps.png')">
+          <img src="day-07/thumb_card-05-craftsman.png" alt="数字时代的匠人" onclick="openModal('day-07/card-05-craftsman.png')">
+          <img src="day-07/thumb_card-06-closing.png" alt="收尾" onclick="openModal('day-07/card-06-closing.png')">
+        </div>
+        <div class="post-title">为什么不手工做？——最常被问的问题，今天坦诚回答</div>
+        <div class="post-date">发布于 2026.06.12</div>
+        <div class="post-excerpt">
+          「你们有 3D 打印，为什么还需要手工上釉？」「机器做的陶瓷，有灵魂吗？」「这还算匠人吗？」——三个被问了无数次的问题，今天坦诚回答。不是取代手工，是手工做不了的事，用打印来做……
+        </div>
+        <a class="post-link" href="day-07/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-06/thumb_card-01-cover.png" alt="炉瓶三事" onclick="openModal('day-06/card-01-cover.png')">
+          <img src="day-06/thumb_card-02-incense.png" alt="香炉设计" onclick="openModal('day-06/card-02-incense.png')">
+          <img src="day-06/thumb_card-03-vase.png" alt="著瓶设计" onclick="openModal('day-06/card-03-vase.png')">
+          <img src="day-06/thumb_card-04-box.png" alt="香粉盒设计" onclick="openModal('day-06/card-04-box.png')">
+          <img src="day-06/thumb_card-05-set.png" alt="三件套装" onclick="openModal('day-06/card-05-set.png')">
+          <img src="day-06/thumb_card-06-ending.png" alt="收尾互动" onclick="openModal('day-06/card-06-ending.png')">
+        </div>
+        <div class="post-title">炉、瓶、盒。三件事，古人叫「炉瓶三事」</div>
+        <div class="post-date">发布于 2026.06.11</div>
+        <div class="post-excerpt">
+          「炉瓶三事」——这是古人对香道三件套的雅称。香炉、著瓶、香粉盒，三件器物各司其职。不是炫富，是修行……
+        </div>
+        <a class="post-link" href="day-06/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-05/thumb_card-01-cover.png" alt="封面" onclick="openModal('day-05/card-01-cover.png')">
+          <img src="day-05/thumb_card-02-scene.png" alt="茶席场景" onclick="openModal('day-05/card-02-scene.png')">
+          <img src="day-05/thumb_card-03-teapot.png" alt="茶壶特写" onclick="openModal('day-05/card-03-teapot.png')">
+          <img src="day-05/thumb_card-04-cups.png" alt="四个茶杯" onclick="openModal('day-05/card-04-cups.png')">
+          <img src="day-05/thumb_card-05-design.png" alt="设计理念" onclick="openModal('day-05/card-05-design.png')">
+          <img src="day-05/thumb_card-06-ending.png" alt="收尾互动" onclick="openModal('day-05/card-06-ending.png')">
+        </div>
+        <div class="post-title">下午四点，光线最好。茶席上，只有这些就够了。</div>
+        <div class="post-date">发布于 2026.06.10</div>
+        <div class="post-excerpt">
+          不需要很多东西。一张素色的麻布茶席，一把白瓷茶壶，四个小茶杯排成一行。窗外是四点的光，斜斜地照进来，刚好打在壶身上。喝茶这件事，说到底不是品鉴，是陪伴……
+        </div>
+        <a class="post-link" href="day-05/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-04/thumb_card-01-cover.png" alt="封面" onclick="openModal('day-04/card-01-cover.png')">
+          <img src="day-04/thumb_card-02-story.png" alt="千年前的定窑" onclick="openModal('day-04/card-02-story.png')">
+          <img src="day-04/thumb_card-03-language.png" alt="换了一种语言" onclick="openModal('day-04/card-03-language.png')">
+          <img src="day-04/thumb_card-04-g2curve.png" alt="G2曲线" onclick="openModal('day-04/card-04-g2curve.png')">
+          <img src="day-04/thumb_card-05-precision.png" alt="微米级密合" onclick="openModal('day-04/card-05-precision.png')">
+          <img src="day-04/thumb_card-06-ending.png" alt="收尾" onclick="openModal('day-04/card-06-ending.png')">
+        </div>
+        <div class="post-title">宋代工匠不知道 G2 曲线，但他们做对了同一件事</div>
+        <div class="post-date">发布于 2026.06.09</div>
+        <div class="post-excerpt">
+          宋代的定窑工匠，不知道什么是 G2 连续曲率。不知道参数化建模，不知道微米级精度。但他们用手感做出了同样温润的器型，烧出了后世膜拜千年的「定窑象牙白」。一千年后，我们用数学，把那份温润重新翻译了一遍……
+        </div>
+        <a class="post-link" href="day-04/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-03/thumb_teapot.png" alt="视频缩略图" onclick="openModal('day-03/thumb_teapot.png')">
+        </div>
+        <div class="post-title">一只好茶壶，有三个你注意不到的巧思</div>
+        <div class="post-date">发布于 2026.06.08</div>
+        <div class="post-excerpt">
+          茶壶看起来简单：一个肚子、一个嘴、一个盖。但一只好茶壶的功夫，都在你看不到的地方。重心、隔热、密合度——三个巧思，重新认识一把好茶壶……
+        </div>
+        <a class="post-link" href="day-03/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-02/thumb_card-01-cover.png" alt="封面" onclick="openModal('day-02/card-01-cover.png')">
+          <img src="day-02/thumb_card-02-step1.png" alt="Step1" onclick="openModal('day-02/card-02-step1.png')">
+          <img src="day-02/thumb_card-03-step2.png" alt="Step2" onclick="openModal('day-02/card-03-step2.png')">
+          <img src="day-02/thumb_card-04-step3.png" alt="Step3" onclick="openModal('day-02/card-04-step3.png')">
+          <img src="day-02/thumb_card-05-step4.png" alt="Step4" onclick="openModal('day-02/card-05-step4.png')">
+          <img src="day-02/thumb_card-06-ending.png" alt="收尾" onclick="openModal('day-02/card-06-ending.png')">
+        </div>
+        <div class="post-title">一只 3D 打印茶壶，要经历 4 步</div>
+        <div class="post-date">发布于 2026.06.07</div>
+        <div class="post-excerpt">
+          很多人以为 3D 打印就是「按个按钮，等它打完」。其实不是。一只正窑的茶壶，从数字模型到最终出炉，要经历 4 步，每一步都缺一不可……
+        </div>
+        <a class="post-link" href="day-02/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+      <!-- Day 1 -->
+      <div class="post-card">
+        <div class="thumb-scroll">
+          <img src="day-01-promo/thumb_card1.png" alt="封面" onclick="openModal('day-01-promo/card1.png')">
+          <img src="day-01-promo/thumb_card2.png" alt="壶杯套件" onclick="openModal('day-01-promo/card2.png')">
+          <img src="day-01-promo/thumb_card3.png" alt="炉瓶三事" onclick="openModal('day-01-promo/card3.png')">
+          <img src="day-01-promo/thumb_card4.png" alt="概念" onclick="openModal('day-01-promo/card4.png')">
+        </div>
+        <div class="post-title">千年定窑，用 3D 打印机做出来，会怎样？</div>
+        <div class="post-date">发布于 2026.06.01</div>
+        <div class="post-excerpt">
+          我们是正窑。一个把宋代定窑白瓷，用 3D 打印重新做一遍的工作室。定窑白瓷，千年来都是匠人手工拉坯、施釉、烧制。我们加了一步：用数字算弧线，用打印机堆泥坯……
+        </div>
+        <a class="post-link" href="day-01/index.html" target="_blank">查看完整内容 →</a>
+      </div>
+
+    </div><!-- /#posts -->
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+
+  </div><!-- /.container -->
+
+  <!-- 图片放大模态框 -->
+  <div class="modal" id="imgModal" onclick="closeModal()">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="" alt="放大预览">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imgModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

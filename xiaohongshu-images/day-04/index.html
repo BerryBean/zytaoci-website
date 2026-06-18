@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 4 · 宋代工匠 × G2 曲线 — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; line-height:1.5; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+    .promo-card .card-body p { margin-bottom:16px; }
+    .promo-card .card-body .highlight { color:#8B7355; font-weight:600; }
+    .promo-card .card-body hr {
+      border:none; border-top:1px solid #E8E2D9; margin:24px 0;
+    }
+
+    /* === Modal === */
+    .modal {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.85); z-index:1000;
+      justify-content:center; align-items:center;
+      cursor:zoom-out;
+    }
+    .modal.active { display:flex; }
+    .modal img {
+      max-width:90vw; max-height:90vh;
+      border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.4);
+    }
+    .modal .close-btn {
+      position:absolute; top:24px; right:28px;
+      width:40px; height:40px; border-radius:50%;
+      background:rgba(255,255,255,0.15); color:white;
+      border:none; font-size:20px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'37d06266c87c41b4b270e2e747f26394'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>宋代工匠不知道 G2 曲线<br>但他们做对了同一件事</h1>
+      <p>品牌故事 · 跨时空对话</p>
+    </div>
+
+    <!-- Card 1: Cover -->
+    <div class="promo-card">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">宋代工匠<br>不知道 G2 曲线</div>
+        <div class="card-body">但他们做对了<br>同一件事</div>
+      </div>
+    </div>
+
+    <!-- Card 2: 千年前的定窑 -->
+    <div class="promo-card">
+      <img src="card-02-story.png" alt="千年前的定窑">
+      <div class="text-content">
+        <div class="step-tag">千年前的定窑</div>
+        <div class="card-title">不懂参数化<br>不懂微米级</div>
+        <div class="card-body">
+          宋代的定窑工匠，<br>
+          不知道什么是 G2 连续曲率。<br>
+          不知道参数化建模，<br>
+          不知道什么叫<strong>「微米级精度的盖口密合」</strong>。<br><br>
+          但他们用手感做出了同样温润的器型。<br>
+          用经验找到了同样精准的火候。<br>
+          用一双眼睛和两只手，<br>
+          烧出了后世膜拜千年的<strong>「定窑象牙白」</strong>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 换了一种语言 -->
+    <div class="promo-card" style="background:#3C2F1E;">
+      <img src="card-03-language.png" alt="换了一种语言">
+      <div class="text-content">
+        <div class="step-tag" style="background:transparent; border:1px solid rgba(200,170,120,0.55); color:rgba(200,170,120,0.9);">一千年后 · 同一片泥土</div>
+        <div class="card-title" style="color:#F5EDE0;">换了一种语言<br>说的还是那句话</div>
+        <div class="card-body" style="color:rgba(255,255,255,0.6);">
+          我们做的事情，不是<span style="color:rgba(200,170,120,0.9);">「颠覆传统」</span>。<br>
+          是先理解了宋人为什么这样做，<br>
+          然后用<span style="color:rgba(200,170,120,0.9);">数学</span>把那份温润重新翻译了一遍。<br><br>
+          同一片河北曲阳的泥。<br>
+          同一个 1280°C 的窑火。<br>
+          同一个追求：<span style="color:rgba(200,170,120,0.9);">做一只好器物</span>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: G2 曲线 = 顺滑 -->
+    <div class="promo-card">
+      <img src="card-04-g2curve.png" alt="G2曲线">
+      <div class="text-content">
+        <div class="step-tag">数字翻译传统</div>
+        <div class="card-title">G2 曲线<br>= 宋人手里的「顺滑」</div>
+        <div class="card-body">
+          G2 连续曲率，<br>
+          数学意义上的<strong>完美弧度</strong>。<br>
+          而宋人工匠用手感找出的那一道弧，<br>
+          恰恰也在追求同一种东西——<br><br>
+          <strong>顺滑。温润。不扎手。</strong><br><br>
+          不同时代，不同工具，<br>
+          同一个答案。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: 微米级密合 -->
+    <div class="promo-card">
+      <img src="card-05-precision.png" alt="微米级密合">
+      <div class="text-content">
+        <div class="step-tag">精确到小数点后两位</div>
+        <div class="card-title">中空夹壁<br>微米级密合</div>
+        <div class="card-body">
+          不是炫技。<br>
+          中空夹壁，就是宋人想要的<strong>「不烫手」</strong>。<br>
+          微米级密合，就是他们追求的<strong>「严丝合缝」</strong>。<br><br>
+          一千年前用手感和经验，<br>
+          一千年后用数学和打印机。<br>
+          工具变了，<strong>标准没变</strong>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 收尾 -->
+    <div class="promo-card">
+      <img src="card-06-ending.png" alt="收尾">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">我们换了一种语言</div>
+        <div class="card-body">
+          但说的是同一句话<br><br>
+          <strong>做一只好器物</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 完整原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p>宋代的定窑工匠，不知道什么是 <span class="highlight">G2 连续曲率</span>。</p>
+          <p>他们不知道参数化建模，不知道中空夹层结构，不知道什么叫「微米级精度的盖口密合」。</p>
+          <p>但他们用手感做出了同样温润的器型。用经验找到了同样精准的火候。用一双眼睛和两只手，烧出了后世膜拜千年的<span class="highlight">「定窑象牙白」</span>。</p>
+          <p>一千年后，同一片土地的同一种泥，来到了一块屏幕前。</p>
+          <p>我们做的事情，不是<span class="highlight">「颠覆传统」</span>。是先理解了宋人为什么这样做，然后用数学把那份温润重新翻译了一遍。</p>
+          <p><span class="highlight">G2 曲线</span>，其实就是宋人手感里的「顺滑」。</p>
+          <p><span class="highlight">中空夹壁</span>，其实就是他们想要的「不烫手」。</p>
+          <p><span class="highlight">微米级密合</span>，其实就是他们追求的「严丝合缝」。</p>
+          <hr>
+          <p style="text-align:center; color:#8B7355; font-size:18px; letter-spacing:2px;">我们换了一种语言。<br>但说的是同一句话：<strong>做一只好器物</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 互动引导 -->
+    <div class="promo-card">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">你觉得技术和传统<br>是「对立」还是「对话」？</div>
+        <div class="card-body" style="margin-top:12px;">说说你的看法——</div>
+      </div>
+    </div>
+
+    <!-- 标签 -->
+    <div class="promo-card">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-body" style="color:#8B7355; letter-spacing:3px;">
+          #宋代定窑 &nbsp; #3D打印与传统 &nbsp; #数字工艺
+          <br>#正窑陶瓷 &nbsp; #跨时空对话 &nbsp; #器物美学
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imgModal" onclick="closeModal()">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <img id="modalImg" src="" alt="放大预览">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imgModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imgModal').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>正窑陶瓷 · 经典茶壶</title>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #f2ead8;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    position: relative;
+  }
+
+  /* === 3D Model Layer === */
+  .model-layer {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, #faf6eb 0%, #f0e4cc 70%);
+  }
+
+  model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+  }
+
+  /* === Title Card Overlay === */
+  .title-card {
+    position: absolute;
+    inset: 0;
+    background: rgba(61,43,26,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .title-card.show { opacity: 1; }
+
+  .title-card .main {
+    font-size: 76px;
+    font-weight: 800;
+    color: #f2ead8;
+    letter-spacing: 12px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .title-card .sub {
+    margin-top: 24px;
+    font-size: 42px;
+    font-weight: 300;
+    color: #c4a882;
+    letter-spacing: 8px;
+  }
+
+  /* === Text Overlay (bottom) === */
+  .text-overlay {
+    position: absolute;
+    bottom: 160px;
+    left: 80px;
+    right: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+  .text-overlay.show { opacity: 1; }
+
+  .text-overlay .num {
+    font-size: 28px;
+    font-weight: 600;
+    color: #3d2b1a;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+    text-shadow:
+      0 0 20px rgba(242,234,216,0.9),
+      0 2px 8px rgba(242,234,216,0.8),
+      0 -1px 0 rgba(242,234,216,0.7);
+  }
+  .text-overlay .head {
+    font-size: 54px;
+    font-weight: 700;
+    color: #3d2b1a;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    text-shadow:
+      0 0 24px rgba(242,234,216,0.95),
+      0 3px 12px rgba(242,234,216,0.85),
+      0 -2px 0 rgba(242,234,216,0.75);
+  }
+  .text-overlay .desc {
+    font-size: 32px;
+    font-weight: 400;
+    color: #5c4a32;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-shadow:
+      0 0 16px rgba(242,234,216,0.85),
+      0 2px 6px rgba(242,234,216,0.75),
+      0 -1px 0 rgba(242,234,216,0.65);
+  }
+
+  /* === Brand card at end === */
+  .brand-card {
+    position: absolute;
+    inset: 0;
+    background: rgba(242,234,216,0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+  }
+  .brand-card.show { opacity: 1; }
+
+  .brand-card .logo {
+    font-size: 80px;
+    font-weight: 800;
+    color: #3d2b1a;
+    letter-spacing: 16px;
+  }
+  .brand-card .tagline {
+    margin-top: 20px;
+    font-size: 34px;
+    font-weight: 300;
+    color: #7a6b4e;
+    letter-spacing: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 3D Model -->
+<div class="model-layer">
+  <model-viewer id="viewer"
+    src="teapot.glb"
+    auto-rotate
+    rotation-per-second="25deg"
+    shadow-intensity="1.2"
+    exposure="0.9"
+    camera-orbit="45deg 72deg 18m"
+    interaction-prompt="none"
+    environment-image=""
+  >
+</div>
+
+<!-- Title Card -->
+<div class="title-card" id="titleCard">
+  <div class="main">一只好茶壶</div>
+  <div class="sub">有三个你注意不到的巧思</div>
+</div>
+
+<!-- Insight 1 -->
+<div class="text-overlay" id="text1">
+  <div class="num">巧 思 一</div>
+  <div class="head">重心在哪里？</div>
+  <div class="desc">反复调整壶身重心<br>倒茶不费力，水流稳定断开</div>
+</div>
+
+<!-- Insight 2 -->
+<div class="text-overlay" id="text2">
+  <div class="num">巧 思 二</div>
+  <div class="head">无把手，反而不烫</div>
+  <div class="desc">双层中空夹壁，空气隔热<br>手掌贴着壶身，温而不烫</div>
+</div>
+
+<!-- Insight 3 -->
+<div class="text-overlay" id="text3">
+  <div class="num">巧 思 三</div>
+  <div class="head">微米级的密合度</div>
+  <div class="desc">盖子与壶口精确到小数点后两位<br>倒茶不晃、不滑、不漏气</div>
+</div>
+
+<!-- End Text -->
+<div class="text-overlay" id="textEnd">
+  <div class="head">看起来简单的东西</div>
+  <div class="desc">往往最不简单</div>
+</div>
+
+<!-- Brand Card -->
+<div class="brand-card" id="brandCard">
+  <div class="logo">正窑陶瓷</div>
+  <div class="tagline">数字时代的手工精神</div>
+</div>
+
+<script>
+  const model = document.getElementById('viewer');
+  const titleCard = document.getElementById('titleCard');
+  const brandCard = document.getElementById('brandCard');
+
+  let currentText = null;
+  let timelineStarted = false;
+
+  function switchText(fromId, toId) {
+    if (fromId) {
+      document.getElementById(fromId).classList.remove('show');
+    }
+    setTimeout(() => {
+      document.getElementById(toId).classList.add('show');
+      currentText = toId;
+    }, 650);
+  }
+
+  // ======== TIMELINE (31 seconds) ========
+  function runTimeline() {
+    if (timelineStarted) return;
+    timelineStarted = true;
+
+    // 标题卡淡出 → 巧思一淡入
+    setTimeout(() => {
+      titleCard.classList.remove('show');
+      setTimeout(() => {
+        document.getElementById('text1').classList.add('show');
+        currentText = 'text1';
+      }, 700);
+    }, 3300);
+
+    // 10s: → Insight 2
+    setTimeout(() => switchText('text1', 'text2'), 10000);
+
+    // 16s: → Insight 3
+    setTimeout(() => switchText('text2', 'text3'), 16000);
+
+    // 22s: → Closing
+    setTimeout(() => switchText('text3', 'textEnd'), 22000);
+
+    // 25.5s: → Brand card
+    setTimeout(() => {
+      document.getElementById('textEnd').classList.remove('show');
+      currentText = null;
+      setTimeout(() => {
+        brandCard.classList.add('show');
+      }, 700);
+    }, 25500);
+  }
+
+  // 标题卡立即显示（覆盖模型加载空白期）
+  titleCard.classList.add('show');
+
+  // 等模型加载完成再开始时间线
+  model.addEventListener('load', () => {
+    setTimeout(runTimeline, 500);
+  });
+
+  // Fallback: 如果模型加载事件没有触发，5秒后强制开始
+  setTimeout(() => {
+    if (!timelineStarted) runTimeline();
+  }, 5000);
+</script>
+</body>
+</html>

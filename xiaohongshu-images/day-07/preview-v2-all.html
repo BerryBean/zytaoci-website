@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 07 · 全部6张卡片预览（V1方案B）</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1a1a; color:#eee; font-family:"PingFang SC",sans-serif; padding:20px; }
+  h1 { text-align:center; font-size:18px; letter-spacing:3px; color:#d4c5a9; padding:10px 0 20px; }
+  h1 span { font-size:12px; color:#888; }
+  .grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+  .card { background:#262626; border-radius:12px; overflow:hidden; width:341px; transition:transform 0.2s; }
+  .card:hover { transform:translateY(-4px); }
+  .card img { width:100%; display:block; }
+  .card .label { padding:10px 14px; font-size:12px; color:#999; text-align:center; letter-spacing:2px; }
+  .footer { text-align:center; margin-top:30px; font-size:11px; color:#555; }
+</style>
+</head>
+<body>
+<h1>Day 07 · 为什么不手工做？<br><span>方案B：四格条漫拆分为 card-02~05 背景</span></h1>
+<div class="grid">
+  <div class="card"><img src="card-01-cover.png"><div class="label">Card 01 · 封面</div></div>
+  <div class="card"><img src="card-02-questions.png"><div class="label">Card 02 · 灵魂拷问（bg-step1）</div></div>
+  <div class="card"><img src="card-03-print.png"><div class="label">Card 03 · 不是取代（bg-step2）</div></div>
+  <div class="card"><img src="card-04-steps.png"><div class="label">Card 04 · 四步工艺（bg-step3）</div></div>
+  <div class="card"><img src="card-05-craftsman.png"><div class="label">Card 05 · 数字匠人（bg-step4）</div></div>
+  <div class="card"><img src="card-06-closing.png"><div class="label">Card 06 · 收尾</div></div>
+</div>
+<div class="footer">点击放大 / 切换标签查看原图</div>
+</body>
+</html>

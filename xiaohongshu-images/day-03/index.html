@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 · 三个巧思 — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    /* === Video Card === */
+    .video-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .video-card video {
+      width:100%; display:block;
+      border-radius:16px 16px 0 0;
+    }
+    .video-card .text-content { padding:20px 32px 24px; }
+
+    /* === Promo / Insight Card === */
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content, .video-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'37d06266c87c41b4b270e2e747f26394'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>一只好茶壶</h1>
+      <p>有三个你注意不到的巧思</p>
+    </div>
+
+    <!-- Video Card -->
+    <div class="video-card">
+      <video controls playsinline preload="metadata" poster="thumb_teapot.png"
+        style="width:100%;display:block;border-radius:16px 16px 0 0;"
+        src="https://6265-berry-d6g4wygcqf463f0e6-1422406182.tcb.qcloud.la/videos/day-03-teapot-final.mp4?sign=0d90c412f1b8492622baf6224059a5ca&amp;t=1781546526">
+      </video>
+    </div>
+
+    <!-- Insight 1 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="step-tag">巧 思 一</div>
+        <div class="card-title">重心在哪里？</div>
+        <div class="card-body">
+          我们设计茶壶时，反复调整壶身<strong>重心</strong>。<br>
+          倒茶时手腕不费力，壶嘴不滴漏，水流稳定断开。<br><br>
+          这不是玄学，是<strong>力学计算</strong>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Insight 2 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="step-tag">巧 思 二</div>
+        <div class="card-title">无把手<br>反而不烫</div>
+        <div class="card-body">
+          壶身做成<strong>双层中空夹壁</strong>——<br>
+          中间是空气层，隔热效果远好于单层。<br><br>
+          手掌贴着壶身，<strong>温而不烫</strong>，刚好。<br><br>
+          这也是我们坚持无把设计的原因：<br>
+          器物越少干扰，越耐看。
+        </div>
+      </div>
+    </div>
+
+    <!-- Insight 3 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="step-tag">巧 思 三</div>
+        <div class="card-title">微米级的<br>密合度</div>
+        <div class="card-body">
+          盖子与壶口的密合度——<strong>微米级</strong>。<br>
+          不是「差不多」，是精确到小数点后两位。<br><br>
+          倒茶时盖子<strong>不晃、不滑、不漏气</strong>。<br>
+          聚香效果，一试便知。
+        </div>
+      </div>
+    </div>
+
+    <!-- 结语 -->
+    <div class="promo-card">
+      <div class="text-content" style="text-align:center;">
+        <div class="card-title">看起来简单的东西<br>往往最不简单</div>
+      </div>
+    </div>
+
+    <!-- 原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p style="margin-bottom:14px;">茶壶看起来简单：一个肚子、一个嘴、一个盖。但一只好茶壶的功夫，都在你看不到的地方。</p>
+          <p style="margin-bottom:10px;"><strong>巧思 1：重心在哪里？</strong></p>
+          <p style="margin-bottom:14px; color:#666;">我们设计茶壶时，反复调整壶身重心。倒茶时手腕不费力，壶嘴不滴漏，水流稳定断开。这不是玄学，是力学计算。</p>
+          <p style="margin-bottom:10px;"><strong>巧思 2：没有把手，为什么反而不烫？</strong></p>
+          <p style="margin-bottom:14px; color:#666;">壶身做成双层中空夹壁——中间是空气层，隔热效果远好于单层。手掌贴着壶身，温而不烫，刚好。这也是我们坚持无把设计的原因：器物越少干扰，越耐看。</p>
+          <p style="margin-bottom:10px;"><strong>巧思 3：盖子与壶口的密合度。</strong></p>
+          <p style="margin-bottom:14px; color:#666;">微米级。不是「差不多」，是精确到小数点后两位。倒茶时盖子不晃、不滑、不漏气。聚香效果，一试便知。</p>
+          <hr style="border:none; border-top:1px solid #E8E2D9; margin:20px 0;">
+          <p style="color:#999; font-size:13px;">—— 看起来简单的东西，往往最不简单。——</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 2 · 四步成器 — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>四步成器</h1>
+      <p>一只 3D 打印茶壶，要经历 4 步，每步缺一不可</p>
+    </div>
+
+    <!-- Card 1: 封面 -->
+    <div class="promo-card">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="text-content">
+        <div class="card-title">一只 3D 打印茶壶<br>要经历 4 步</div>
+        <div class="card-body">
+          很多人以为 3D 打印就是「按个按钮，等它打完」。<br>
+          其实不是。<br><br>
+          一只正窑的茶壶，从数字模型到最终出炉，<br>
+          要经历 <strong>4 步</strong>，每一步都缺一不可……
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Step 1 -->
+    <div class="promo-card">
+      <img src="card-02-step1.png" alt="Step 1 数字建模">
+      <div class="text-content">
+        <div class="step-tag">STEP 01 · 数字建模</div>
+        <div class="card-title">把弧线<br>算到毫米</div>
+        <div class="card-body">
+          茶壶的<strong>重心</strong>在哪，倒水时手感如何，<br>
+          盖子的<strong>密合度</strong>要几丝——<br><br>
+          这些要在建模阶段就算清楚。<br>
+          精确到毫米。<br><br>
+          <strong>不是差不多，是算清楚。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Step 2 -->
+    <div class="promo-card">
+      <img src="card-03-step2.png" alt="Step 2 3D 打印">
+      <div class="text-content">
+        <div class="step-tag">STEP 02 · 3D 打印</div>
+        <div class="card-title">像蛋糕裱花<br>一层一层</div>
+        <div class="card-body">
+          把定窑白瓷泥调成膏状，<br>
+          像蛋糕裱花一样，<br>
+          一层一层堆出器物的雏形。<br><br>
+          这不是炫技，是解题。<br>
+          不是所有形态都能用手工成形。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Step 3 -->
+    <div class="promo-card">
+      <img src="card-04-step3.png" alt="Step 3 手工上釉">
+      <div class="text-content">
+        <div class="step-tag">STEP 03 · 手工上釉</div>
+        <div class="card-title">打印完<br>只是半成品</div>
+        <div class="card-body">
+          素烧后，<strong>手工施透明釉</strong>。<br>
+          这一步，是<strong>手的温度</strong>。<br><br>
+          上得太厚，烧出来会流釉；<br>
+          太薄，烧出来没有光泽。<br><br>
+          全凭手感和经验。<br>
+          <strong>3D 打印给不了这个。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Step 4 -->
+    <div class="promo-card">
+      <img src="card-05-step4.png" alt="Step 4 高温烧制">
+      <div class="text-content">
+        <div class="step-tag">STEP 04 · 高温烧制</div>
+        <div class="card-title">1280°C<br>窑火见真章</div>
+        <div class="card-body">
+          12 小时升温，12 小时降温。<br><br>
+          釉面在火中自然流淌，<br>
+          形成定窑标志性的<strong>「泪痕」</strong>纹理。<br><br>
+          每一只都不一样。<br>
+          <span style="color:rgba(200,170,120,0.9)">火的意志，不可控，也不可替代。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 收尾 -->
+    <div class="promo-card">
+      <img src="card-06-ending.png" alt="收尾">
+      <div class="text-content">
+        <div class="card-title" style="text-align:center;">从数字<br>到窑火</div>
+        <div class="card-body" style="text-align:center;">
+          从 0 到 1<br>
+          这中间没有捷径<br><br>
+          正窑 · 经典壶杯套件<br>
+          在主页
+        </div>
+      </div>
+    </div>
+
+    <!-- 原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p style="margin-bottom:14px;">很多人以为 3D 打印就是「按个按钮，等它打完」。<br>其实不是。</p>
+          <p style="margin-bottom:14px;">一只正窑的茶壶，从数字模型到最终出炉，<br>要经历 4 步，每一步都缺一不可……</p>
+          <p style="margin-bottom:10px;"><strong>STEP 01 · 数字建模　把弧线算到毫米</strong></p>
+          <p style="margin-bottom:14px; color:#666;">茶壶的重心在哪，倒水时手感如何，<br>盖子的密合度要几丝——<br>这些要在建模阶段就算清楚。<br>精确到毫米。<br>不是差不多，是算清楚。</p>
+          <p style="margin-bottom:10px;"><strong>STEP 02 · 3D 打印　像蛋糕裱花，一层一层</strong></p>
+          <p style="margin-bottom:14px; color:#666;">把定窑白瓷泥调成膏状，<br>像蛋糕裱花一样，<br>一层一层堆出器物的雏形。<br><br>这不是炫技，是解题。<br>不是所有形态都能用手工成形。</p>
+          <p style="margin-bottom:10px;"><strong>STEP 03 · 手工上釉　打印完，只是半成品</strong></p>
+          <p style="margin-bottom:14px; color:#666;">素烧后，手工施透明釉。<br>这一步，是手的温度。<br><br>上得太厚，烧出来会流釉；<br>太薄，烧出来没有光泽。<br><br>全凭手感和经验。<br>3D 打印给不了这个。</p>
+          <p style="margin-bottom:10px;"><strong>STEP 04 · 高温烧制　1280°C，窑火见真章</strong></p>
+          <p style="margin-bottom:14px; color:#666;">12 小时升温，12 小时降温。<br><br>釉面在火中自然流淌，<br>形成定窑标志性的「泪痕」纹理。<br><br>每一只都不一样。<br>火的意志，不可控，也不可替代。</p>
+          <hr style="border:none; border-top:1px solid #E8E2D9; margin:20px 0;">
+          <p style="color:#999; font-size:13px;">从数字，到窑火。<br>从 0 到 1，这中间没有捷径。<br><br>正窑 · 经典壶杯套件，在主页。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+</body>
+</html>

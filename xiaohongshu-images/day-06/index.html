@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 6 · 炉瓶三事 — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>炉瓶三事</h1>
+      <p>炉、瓶、盒。三件事，古人叫「炉瓶三事」</p>
+    </div>
+
+    <!-- Card 1: 封面 -->
+    <div class="promo-card">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="text-content">
+        <div class="card-title">炉、瓶、盒<br>三件事</div>
+        <div class="card-body">
+          「炉瓶三事」——这是古人对香道三件套的雅称。<br>
+          三件器物，各司其职……
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: 香炉 -->
+    <div class="promo-card">
+      <img src="card-02-incense.png" alt="香炉">
+      <div class="text-content">
+        <div class="step-tag">香 炉</div>
+        <div class="card-title">炭火微光<br>透瓷而出</div>
+        <div class="card-body">
+          炭火在炉底，香粉在上。<br>
+          温度透过白瓷，温而不烫——<br>
+          因为用了<strong>中空夹壁</strong>设计。<br><br>
+          香炉要稳、要聚气、要不抢香。<br>
+          <strong>器物不语，炭火自有分寸。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 著瓶 -->
+    <div class="promo-card">
+      <img src="card-03-vase.png" alt="著瓶">
+      <div class="text-content">
+        <div class="step-tag">著 瓶</div>
+        <div class="card-title">很多人以为<br>它是花瓶</div>
+        <div class="card-body">
+          其实它是<strong>收纳大师</strong>。<br><br>
+          里面放的是香著和香铲。<br>
+          打完香篆，工具归位，桌面不乱。<br><br>
+          这是香道里的<strong>秩序感</strong>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 香粉盒 -->
+    <div class="promo-card">
+      <img src="card-04-box.png" alt="香粉盒">
+      <div class="text-content">
+        <div class="step-tag">香 粉 盒</div>
+        <div class="card-title">密封的不是香粉<br>是时间的味道</div>
+        <div class="card-body">
+          盖子与盒身<strong>微米级密合</strong>。<br><br>
+          开盖时那一瞬间，<br>
+          香味才第一次遇见空气。<br><br>
+          不玩香的人觉得它只是个盒子。<br>
+          玩香的人知道，<br>
+          <strong>一个好盒子，值一炉好香。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: 三件套 -->
+    <div class="promo-card">
+      <img src="card-05-set.png" alt="三件套">
+      <div class="text-content">
+        <div class="step-tag">三 件 套</div>
+        <div class="card-title">不是炫富<br>是修行</div>
+        <div class="card-body">
+          三件摆在一起，<br>
+          就是一整套完整的香道仪式。<br><br>
+          炉是静，瓶是序，盒是藏。<br>
+          三件事，<strong>缺一不可</strong>。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 收尾 -->
+    <div class="promo-card">
+      <img src="card-06-ending.png" alt="收尾">
+      <div class="text-content">
+        <div class="card-title" style="text-align:center;">器物不语<br>香自静来</div>
+        <div class="card-body" style="text-align:center;">
+          你接触过香道吗？<br>
+          会打香篆的举手。<br><br>
+          炉瓶三事<br>
+          在主页
+        </div>
+      </div>
+    </div>
+
+    <!-- 原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p style="margin-bottom:14px;">「炉瓶三事」——这是古人对香道三件套的雅称。</p>
+          <p style="margin-bottom:14px;">三件器物，各司其职：</p>
+          <p style="margin-bottom:10px;"><strong>香炉</strong>——用来品香。炭火在炉底，香粉在上。温度透过白瓷传上来，不烫手（中空夹壁设计）。香炉要稳，要聚气，要不抢香。</p>
+          <p style="margin-bottom:14px; color:#666;"></p>
+          <p style="margin-bottom:10px;"><strong>著瓶</strong>——很多人以为它是花瓶。其实它是收纳大师。里面放的是香著（筷子）和香铲。打完香篆，工具归位，桌面不乱。这是香道里的秩序感。</p>
+          <p style="margin-bottom:14px; color:#666;"></p>
+          <p style="margin-bottom:10px;"><strong>香粉盒</strong>——密封香粉。盖子与盒身微米级密合。密封的不是香粉，是时间的味道。</p>
+          <p style="margin-bottom:14px; color:#666;"></p>
+          <p>三件摆在一起，就是一整套完整的香道仪式。不是炫富，是修行。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+</body>
+</html>

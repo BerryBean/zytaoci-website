@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正窑陶瓷艺术工作室 · 品牌手册 | Zhengyao Brand Guideline</title>
+  <meta name="description" content="正窑陶瓷艺术工作室品牌手册：品牌调性、视觉规范、文案规范。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory:       #F8F4EF;
+      --warm-white:   #FAF7F2;
+      --ink:          #2C2C2C;
+      --soft-ink:     #555555;
+      --border:       #E8E2D9;
+      --accent:       #8B7355;
+      --celadon:      #D4C5A9;
+      --font-serif:   'Noto Serif SC', 'Songti SC', serif;
+      --font-sans:    'Noto Sans SC', 'PingFang SC', sans-serif;
+      --font-mono:    'SF Mono', 'Menlo', monospace;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--warm-white);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Cover ---- */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: var(--ivory);
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,115,85,0.07) 0%, transparent 70%);
+    }
+    .cover-brand {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 6px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .cover-title {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: 4px;
+    }
+    .cover-sub {
+      font-size: 15px;
+      color: var(--soft-ink);
+      letter-spacing: 2px;
+      margin-bottom: 48px;
+    }
+    .cover-line {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 48px;
+    }
+    .cover-meta {
+      font-size: 13px;
+      color: var(--soft-ink);
+      letter-spacing: 1px;
+    }
+    .cover-desc {
+      max-width: 480px;
+      font-size: 14px;
+      color: var(--soft-ink);
+      line-height: 2;
+      margin-top: 32px;
+    }
+
+    /* ---- Section ---- */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .section:nth-child(even) {
+      background: var(--ivory);
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .section-title-en {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--soft-ink);
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 24px 0 40px;
+    }
+
+    /* ---- Brand Essence ---- */
+    .essence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .essence-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+    }
+    .essence-card h3 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .essence-card .en {
+      font-size: 12px;
+      color: var(--soft-ink);
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .essence-card p {
+      font-size: 14px;
+      color: var(--soft-ink);
+      line-height: 1.9;
+    }
+
+    /* ---- Soul ---- */
+    .soul-block {
+      background: var(--ink);
+      color: var(--ivory);
+      border-radius: 8px;
+      padding: 48px 40px;
+      margin: 40px 0;
+      text-align: center;
+    }
+    .soul-block .quote {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      line-height: 2;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+    .soul-block .quote-en {
+      font-size: 14px;
+      opacity: 0.6;
+      margin-top: 20px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    /* ---- Voice ---- */
+    .voice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+    }
+    .voice-table th,
+    .voice-table td {
+      text-align: left;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .voice-table th {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .voice-table td:first-child {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .voice-table td {
+      color: var(--soft-ink);
+      vertical-align: top;
+    }
+
+    /* ---- Color ---- */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .color-swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+    }
+    .color-swatch-preview {
+      height: 100px;
+    }
+    .color-swatch-info {
+      padding: 14px 16px;
+    }
+    .color-swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .color-swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--soft-ink);
+    }
+    .color-swatch-usage {
+      font-size: 11px;
+      color: var(--soft-ink);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ---- Typography ---- */
+    .type-demo {
+      margin: 32px 0;
+      padding: 32px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .type-demo .label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .type-demo .demo-serif {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .type-demo .demo-sans {
+      font-family: var(--font-sans);
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .type-demo .meta {
+      font-size: 12px;
+      color: var(--soft-ink);
+      font-family: var(--font-mono);
+    }
+
+    /* ---- Copy Rules ---- */
+    .rule-list {
+      margin: 32px 0;
+    }
+    .rule-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      min-width: 32px;
+    }
+    .rule-content h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .rule-content p {
+      font-size: 14px;
+      color: var(--soft-ink);
+      line-height: 1.8;
+    }
+    .rule-content .example {
+      margin-top: 10px;
+      padding: 12px 16px;
+      background: var(--ivory);
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .rule-content .good { color: #2E7D32; }
+    .rule-content .bad  { color: #C62828; text-decoration: line-through; }
+
+    /* ---- Phototype ---- */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .photo-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .photo-card-img {
+      height: 180px;
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: var(--border);
+    }
+    .photo-card-body {
+      padding: 20px;
+    }
+    .photo-card-body h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .photo-card-body p {
+      font-size: 13px;
+      color: var(--soft-ink);
+      line-height: 1.7;
+    }
+
+    /* ---- Do / Don't ---- */
+    .dodont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .dodont-card {
+      border-radius: 8px;
+      border: 1px solid;
+      overflow: hidden;
+    }
+    .dodont-card.do  { border-color: #C8E6C9; }
+    .dodont-card.dont { border-color: #FFCDD2; }
+    .dodont-header {
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .dodont-card.do .dodont-header   { background: #E8F5E9; color: #2E7D32; }
+    .dodont-card.dont .dodont-header { background: #FFEBEE; color: #C62828; }
+    .dodont-body {
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--soft-ink);
+    }
+
+    /* ---- Tone Words ---- */
+    .tone-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 32px 0;
+    }
+    .tone-tag {
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      color: var(--ink);
+    }
+    .tone-tag.positive { border-color: var(--accent); color: var(--accent); background: rgba(139,115,85,0.06); }
+    .tone-tag.negative { opacity: 0.35; text-decoration: line-through; }
+
+    /* ---- Footer ---- */
+    .guide-footer {
+      text-align: center;
+      padding: 60px 32px;
+      border-top: 1px solid var(--border);
+      color: var(--soft-ink);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* ---- Print ---- */
+    @media print {
+      .cover { break-after: page; }
+      .section { break-inside: avoid; }
+      .soul-block { background: #2C2C2C !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+
+    @media (max-width: 640px) {
+      .essence-grid, .photo-grid, .dodont-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<section class="cover">
+  <div class="cover-brand">Zhengyao Ceramic Art Studio</div>
+  <h1 class="cover-title">正窑陶瓷艺术工作室</h1>
+  <p class="cover-sub">品牌手册 · Brand Guideline</p>
+  <div class="cover-line"></div>
+  <p class="cover-desc">
+    定窑白瓷为胎，1280°C 窑火为魂。<br>数字时代的手工精神工房。
+  </p>
+  <div class="cover-meta" style="margin-top:60px;">© 2026 Zhengyao Ceramic Art Studio</div>
+  <div class="cover-meta">Version 1.0 · 2026.06</div>
+</section>
+
+
+<!-- ==================== 01 BRAND ESSENCE ==================== -->
+<section class="section">
+  <div class="section-label">Chapter 01</div>
+  <h2 class="section-title">品牌精髓</h2>
+  <p class="section-title-en">Brand Essence</p>
+  <div class="divider"></div>
+
+  <div class="soul-block">
+    <div class="quote">
+      泥还是那片泥，釉还是那道透明釉，<br>窑火还是那 1280°C。<br>变的只是「如何成形」。
+    </div>
+    <div class="quote-en">
+      The clay — the same. The glaze — the same. The fire — the same 1280°C.<br>
+      The only thing that changed is how the form came to be.
+    </div>
+  </div>
+
+  <div class="essence-grid">
+    <div class="essence-card">
+      <h3>定位</h3>
+      <span class="en">Positioning</span>
+      <p>数字时代的手工精神工房。以 3D 打印拓展陶瓷成型的边界，但不取代釉与火的千年工艺。</p>
+    </div>
+    <div class="essence-card">
+      <h3>使命</h3>
+      <span class="en">Mission</span>
+      <p>让美更易触达——用技术回答传统手工无法回答的问题，做出经得起时间凝视的作品。</p>
+    </div>
+    <div class="essence-card">
+      <h3>受众</h3>
+      <span class="en">Audience</span>
+      <p>25–50 岁，对器物有审美要求，懂得「静」的价值。茶人、香友、设计师、生活美学爱好者。</p>
+    </div>
+    <div class="essence-card">
+      <h3>差异化</h3>
+      <span class="en">Differentiation</span>
+      <p>定窑白瓷 + 3D 打印 + 手工上釉 + 1280°C 窑烧。四要素缺一不可，形成独特定位。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 02 BRAND VOICE ==================== -->
+<section class="section">
+  <div class="section-label">Chapter 02</div>
+  <h2 class="section-title">品牌声音</h2>
+  <p class="section-title-en">Brand Voice</p>
+  <div class="divider"></div>
+
+  <h3 style="font-size:16px;font-weight:600;margin:32px 0 16px;">四大声音特征</h3>
+  <table class="voice-table">
+    <thead>
+      <tr><th>特征</th><th>中文表达</th><th>English</th><th>禁忌</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🌿 静</td>
+        <td>安静、克制、不叫卖。陈述事实，不制造焦虑。</td>
+        <td>Quiet, restrained, no hard-selling. State facts; don't manufacture urgency.</td>
+        <td>感叹号、促销用语、"限时"</td>
+      </tr>
+      <tr>
+        <td>🔬 准</td>
+        <td>精确表达技术细节——G2 曲线、微米级密合、1280°C。</td>
+        <td>Precision in technical language — G2 curvature, micron-level sealing, 1280°C.</td>
+        <td>"差不多"、模糊形容</td>
+      </tr>
+      <tr>
+        <td>🏛️ 厚</td>
+        <td>援引宋代五大名窑、千年窑火，建立时间厚度与文化重量。</td>
+        <td>Invoke the Song Dynasty, millennia of kiln fire — build temporal and cultural weight.</td>
+        <td>轻浮的网络用语</td>
+      </tr>
+      <tr>
+        <td>✨ 轻</td>
+        <td>"不是炫技，而是解题"。谦逊地表达技术，不自我标榜。</td>
+        <td>"Not spectacle, but solution." Humble about technology; no self-promotion.</td>
+        <td>夸大其词、"革命性"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:16px;font-weight:600;margin:40px 0 16px;">用词倾向</h3>
+  <div class="tone-tags">
+    <span class="tone-tag positive">静</span>
+    <span class="tone-tag positive">温润</span>
+    <span class="tone-tag positive">精确</span>
+    <span class="tone-tag positive">对话</span>
+    <span class="tone-tag positive">淬炼</span>
+    <span class="tone-tag positive">经得起时间</span>
+    <span class="tone-tag positive">双重</span>
+    <span class="tone-tag positive">数学</span>
+    <span class="tone-tag positive">触达</span>
+    <span class="tone-tag positive">凝视</span>
+    <span class="tone-tag negative">颠覆</span>
+    <span class="tone-tag negative">革命性</span>
+    <span class="tone-tag negative">限时折扣</span>
+    <span class="tone-tag negative">黑科技</span>
+    <span class="tone-tag negative">最顶级</span>
+  </div>
+</section>
+
+
+<!-- ==================== 03 VISUAL & MATERIAL ==================== -->
+<section class="section" style="background:var(--ivory);">
+  <div class="section-label">Chapter 03</div>
+  <h2 class="section-title">视觉与材质调性</h2>
+  <p class="section-title-en">Visual & Material Tone</p>
+  <div class="divider"></div>
+
+  <h3 style="font-size:16px;font-weight:600;margin:32px 0 16px;">品牌色板</h3>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#F8F4EF;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">象牙白 Ivory White</div>
+        <div class="color-swatch-hex">#F8F4EF</div>
+        <div class="color-swatch-usage">主背景色，定窑白瓷的主色调</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#2C2C2C;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">墨 Ink</div>
+        <div class="color-swatch-hex">#2C2C2C</div>
+        <div class="color-swatch-usage">正文、标题主色</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#8B7355;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">窑棕 Kiln Brown</div>
+        <div class="color-swatch-hex">#8B7355</div>
+        <div class="color-swatch-usage">强调色、装饰线、标签</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#D4C5A9;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">釉青 Celadon</div>
+        <div class="color-swatch-hex">#D4C5A9</div>
+        <div class="color-swatch-usage">辅助色、渐变、背景装饰</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#E8E2D9;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">瓷灰 Porcelain Grey</div>
+        <div class="color-swatch-hex">#E8E2D9</div>
+        <div class="color-swatch-usage">边框、分割线、浅背景</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-swatch-preview" style="background:#555555;"></div>
+      <div class="color-swatch-info">
+        <div class="color-swatch-name">柔墨 Soft Ink</div>
+        <div class="color-swatch-hex">#555555</div>
+        <div class="color-swatch-usage">辅助正文、说明文字</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:600;margin:40px 0 16px;">字体规范</h3>
+  <div class="type-demo">
+    <div class="label">中文标题 · Noto Serif SC</div>
+    <div class="demo-serif">正窑陶瓷艺术工作室</div>
+    <div class="meta">font-family: 'Noto Serif SC', serif — 用于标题、品牌名</div>
+  </div>
+  <div class="type-demo">
+    <div class="label">中文正文 · Noto Sans SC</div>
+    <div class="demo-sans">将千年陶瓷工艺与数字制造技术相遇。</div>
+    <div class="meta">font-family: 'Noto Sans SC', sans-serif — 用于正文、UI</div>
+  </div>
+  <div class="type-demo">
+    <div class="label">English · Inter</div>
+    <div class="demo-sans" style="font-family:'Inter',sans-serif;">Where millennia of ceramic craft meets digital manufacturing.</div>
+    <div class="meta">font-family: 'Inter', sans-serif — 用于英文正文</div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:600;margin:40px 0 16px;">材质与摄影调性</h3>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-card-img">🏺</div>
+      <div class="photo-card-body">
+        <h4>器物摄影</h4>
+        <p>自然光或柔光，浅景深。背景用素色（米白、浅灰），突出器物本身的釉色与形态。不用高饱和度滤镜。</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-card-img">✋</div>
+      <div class="photo-card-body">
+        <h4>手工痕迹</h4>
+        <p>适度展示「泪痕」釉面纹理、手工上釉的不完美感。这是定窑 DNA，不是瑕疵。</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-card-img">🔥</div>
+      <div class="photo-card-body">
+        <h4>窑火与工艺</h4>
+        <p>可展示 3D 打印过程、素烧、上釉、窑烧场景。但不用「工厂流水线」感，保持工房温度。</p>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-card-img">🍵</div>
+      <div class="photo-card-body">
+        <h4>生活场景</h4>
+        <p>茶席、香案、书桌。安静、干净、有留白。不摆拍过度，让器物融入真实生活。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 04 COPYWRITING RULES ==================== -->
+<section class="section">
+  <div class="section-label">Chapter 04</div>
+  <h2 class="section-title">文案规范</h2>
+  <p class="section-title-en">Copywriting Rules</p>
+  <div class="divider"></div>
+
+  <div class="rule-list">
+    <div class="rule-item">
+      <div class="rule-num">01</div>
+      <div class="rule-content">
+        <h4>不用感叹号</h4>
+        <p>品牌语气是安静的。句号足矣。多个句号（……）可以用来制造余韵，但不用「！！！」。</p>
+        <div class="example">
+          <span class="good">✓ 每一件作品，都经过双重淬炼。</span><br>
+          <span class="bad">✗ 每一件作品都超惊艳！！！</span>
+        </div>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">02</div>
+      <div class="rule-content">
+        <h4>善用对比结构</h4>
+        <p>「手 vs 数学」「传统 vs 数字」「断裂 vs 对话」——用对比制造张力，但不制造对立感。</p>
+        <div class="example">
+          <span class="good">✓ 宋人不知道什么是 G2 曲线……我们做的，只是把那份温润翻译成数学。</span>
+        </div>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">03</div>
+      <div class="rule-content">
+        <h4>英文不直译</h4>
+        <p>英文文案需保持同等文学性，不逐字翻译。可根据英文阅读习惯调整句式，但保留诗意。</p>
+        <div class="example">
+          <span class="good">✓ This is not rupture. It is dialogue. A dialogue across a thousand years.</span><br>
+          <span class="bad">✗ This is not broken. This is dialogue.</span>
+        </div>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">04</div>
+      <div class="rule-content">
+        <h4>关键数字精确呈现</h4>
+        <p>温度、尺寸、技术参数（G2、微米）必须精确，不用约数。这是「准」的声音特征。</p>
+        <div class="example">
+          <span class="good">✓ 1280°C 高温烧制 · 微米级密合 · G2 连续曲率</span><br>
+          <span class="bad">✗ 高温烧制 · 非常精准 · 完美曲线</span>
+        </div>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">05</div>
+      <div class="rule-content">
+        <h4>第一人称「我们」坦诚叙述</h4>
+        <p>不用「正窑陶瓷艺术工作室」这种第三人称自称，用「我们」建立对话感。但不过度使用。</p>
+        <div class="example">
+          <span class="good">✓ 我们选择了 3D 打印，因为它能回答手工无法回答的问题。</span><br>
+          <span class="bad">✗ 正窑陶瓷艺术工作室选用 3D 打印技术……</span>
+        </div>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">06</div>
+      <div class="rule-content">
+        <h4>中英文并列时结构对称</h4>
+        <p>网站中中英文用 &lt;span class="zh"&gt; 和 &lt;span class="en"&gt; 包裹，确保两种语言篇幅和语气对称。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 05 DO & DON'T ==================== -->
+<section class="section" style="background:var(--ivory);">
+  <div class="section-label">Chapter 05</div>
+  <h2 class="section-title">设计执行规范</h2>
+  <p class="section-title-en">Design Do's & Don'ts</p>
+  <div class="divider"></div>
+
+  <div class="dodont-grid">
+    <div class="dodont-card do">
+      <div class="dodont-header">✓ 推荐做法 Do</div>
+      <div class="dodont-body">
+        <p>• 大量留白，让器物呼吸</p>
+        <p>• 用象牙白（#F8F4EF）做背景</p>
+        <p>• 中英文上下排列，不混排</p>
+        <p>• 图片用圆角（8px）或直角，不用花哨边框</p>
+        <p>• 强调信息用窑棕（#8B7355）细线，不用粗彩条</p>
+        <p>• 3D 模型展示时，用浅灰背景 + 柔和灯光</p>
+      </div>
+    </div>
+    <div class="dodont-card dont">
+      <div class="dodont-header">✗ 避免做法 Don't</div>
+      <div class="dodont-body">
+        <p>• 不用高饱和度的颜色（红、蓝、绿）</p>
+        <p>• 不用粒子特效、霓虹光、渐变彩虹</p>
+        <p>• 不摆拍「科技感」——我们不卖科技，卖器物</p>
+        <p>• 不用 Comic Sans 或装饰性太强的字体</p>
+        <p>• 不减损器物本身的展示空间</p>
+        <p>• 不用「限时优惠」「爆款」等电商语言</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 06 APPLICATION ==================== -->
+<section class="section">
+  <div class="section-label">Chapter 06</div>
+  <h2 class="section-title">应用场景</h2>
+  <p class="section-title-en">Application Scenarios</p>
+  <div class="divider"></div>
+
+  <div class="rule-list">
+    <div class="rule-item">
+      <div class="rule-num">01</div>
+      <div class="rule-content">
+        <h4>网站 / Website</h4>
+        <p>已按本规范执行。导航简洁，产品页以 3D 模型为主，文案分段清晰，中英文切换流畅。</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">02</div>
+      <div class="rule-content">
+        <h4>社交媒体 / Social Media</h4>
+        <p>小红书、Instagram：图片静美，文案短而有余韵。不用「九宫格」硬凑，一张好图胜过九张。</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">03</div>
+      <div class="rule-content">
+        <h4>产品包装 / Packaging</h4>
+        <p>素色包装盒，烫窑棕色品牌名。内衬用环保纸浆，不用塑料。附一张小卡片，印一句品牌语。</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">04</div>
+      <div class="rule-content">
+        <h4>名片 / 宣传册 / Business Collateral</h4>
+        <p>大量留白，仅品牌名 + 联系方式。纸张选用有纹理的棉纸或宣纸质感。</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-num">05</div>
+      <div class="rule-content">
+        <h4>Canva 设计 / Canva Designs</h4>
+        <p>上传本品牌手册中的色板与字体规范，确保所有设计输出（海报、社交媒体图）保持一致性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="guide-footer">
+  <p><strong>正窑陶瓷艺术工作室</strong> · Zhengyao Ceramic Art Studio</p>
+  <p>定窑白瓷 · 3D 打印 · 数字工艺 · 日常之美</p>
+  <p style="margin-top:16px; font-size:12px; color:var(--border);">本品牌手册为正窑陶瓷艺术工作室内部设计参考文件。<br>Version 1.0 · 2026.06 · 由 WorkBuddy 生成</p>
+</footer>
+
+</body>
+</html>

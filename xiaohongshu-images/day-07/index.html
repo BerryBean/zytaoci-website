@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 7 · 为什么不手工做？ — 正窑</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #F5F0E8;
+      font-family: -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+      color: #2C2C2C;
+    }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+    .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+    .page-header { text-align:center; margin-bottom:48px; }
+    .page-header h1 { font-size:22px; font-weight:700; color:#2C2C2C; letter-spacing:3px; margin-bottom:8px; }
+    .page-header p { font-size:13px; color:#999; letter-spacing:2px; }
+
+    .promo-card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      margin-bottom:40px; box-shadow:0 2px 16px rgba(0,0,0,0.06);
+    }
+    .promo-card img { width:100%; display:block; }
+    .promo-card .text-content { padding:28px 32px 36px; }
+    .promo-card .step-tag {
+      display:inline-block; background:#8B7355; color:#fff;
+      padding:4px 16px; border-radius:14px;
+      font-size:12px; letter-spacing:2px; margin-bottom:14px;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-title {
+      font-size:22px; font-weight:700; color:#2C2C2C;
+      letter-spacing:3px; line-height:1.5; margin-bottom:16px;
+      font-family:'Noto Serif SC','STSong',serif;
+    }
+    .promo-card .card-body {
+      font-size:15px; color:#666; line-height:2;
+      font-family:'Noto Sans SC',sans-serif;
+    }
+    .promo-card .card-body strong { color:#8B7355; }
+
+    .footer { text-align:center; padding:40px 0 20px; font-size:13px; color:#ccc; letter-spacing:4px; }
+
+    @media (max-width:480px) {
+      .container { padding:20px 12px 60px; }
+      .promo-card .text-content { padding:20px; }
+      .promo-card .card-title { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>为什么不手工做？</h1>
+      <p>最常被问的问题，今天坦诚回答</p>
+    </div>
+
+    <!-- Card 1: 封面 -->
+    <div class="promo-card">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="text-content">
+        <div class="card-title">为什么不<br>手工做？</div>
+        <div class="card-body">
+          数字时代的匠人答卷。<br>
+          三个被问了无数遍的问题，今天坦诚回答。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: 灵魂拷问 -->
+    <div class="promo-card">
+      <img src="card-02-questions.png" alt="灵魂拷问">
+      <div class="text-content">
+        <div class="step-tag">灵魂拷问</div>
+        <div class="card-title">三个被问<br>无数遍的问题</div>
+        <div class="card-body">
+          「有 3D 打印了，为什么还要<strong>手工上釉</strong>？」<br><br>
+          「机器做的陶瓷，跟手拉坯比，有<strong>灵魂</strong>吗？」<br><br>
+          「这，还算<strong>匠人</strong>吗？」
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 手工做不了的事 -->
+    <div class="promo-card">
+      <img src="card-03-print.png" alt="手工做不了的事">
+      <div class="text-content">
+        <div class="step-tag">不是取代</div>
+        <div class="card-title">手工做不了的<br>用打印来做</div>
+        <div class="card-body">
+          茶壶的中空夹壁——拉坯<strong>做不出双层</strong>。<br>
+          香粉盒的微米级密合——手工打泥条<strong>做不到这个精度</strong>。<br>
+          每一条 G2 连续曲线——靠手感<strong>做不到数学意义上的完美</strong>。<br><br>
+          3D 打印不是来抢饭碗的。它是来回答手工回答不了的问题的。
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: 打印只是第一步 -->
+    <div class="promo-card">
+      <img src="card-04-steps.png" alt="打印只是第一步">
+      <div class="text-content">
+        <div class="step-tag">四步工艺</div>
+        <div class="card-title">打印只是第一步<br>后面还有三步</div>
+        <div class="card-body">
+          3D 打印成形 → <strong>手工上釉</strong>（手的温度）→ <strong>1280°C 窑烧</strong>（火的意志）。<br><br>
+          我们只是把「成形」这一步，从「手」换成了「打印机」。<br>
+          其他的，<strong>原封不动。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: 数字时代的匠人 -->
+    <div class="promo-card">
+      <img src="card-05-craftsman.png" alt="数字时代的匠人">
+      <div class="text-content">
+        <div class="step-tag">匠人精神</div>
+        <div class="card-title">数字时代<br>的匠人</div>
+        <div class="card-body">
+          匠人，从来不是靠工具定义的。<br>
+          手拉坯是工具，3D 打印机也是工具。<br>
+          关键是——做器物的人，有没有那颗<strong>「不惜工」</strong>的心。<br><br>
+          所以，这算匠人吗？<br>
+          <strong>算。算数字时代的匠人。</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: 收尾 -->
+    <div class="promo-card">
+      <img src="card-06-closing.png" alt="收尾">
+      <div class="text-content">
+        <div class="card-title" style="text-align:center;">你能接受<br>「数字匠人」吗？</div>
+        <div class="card-body" style="text-align:center;">
+          聊聊你的想法。<br>
+          我们评论区见。<br><br>
+          方圆茶壶 · 中空夹壁<br>
+          在主页
+        </div>
+      </div>
+    </div>
+
+    <!-- 原文 -->
+    <div class="promo-card">
+      <div class="text-content">
+        <div class="card-title">原文</div>
+        <div class="card-body">
+          <p style="margin-bottom:14px;">「你们有 3D 打印，为什么还需要手工上釉？」「3D 打印的陶瓷，跟手拉坯的比，有灵魂吗？」「机器做的，还算匠人吗？」</p>
+          <p style="margin-bottom:14px;">这三个问题，我们被问了无数次。今天坦诚回答。</p>
+          <p style="margin-bottom:14px;"><strong>不是「取代手工」。是「手工做不了的事，用打印来做」。</strong></p>
+          <p style="margin-bottom:14px;">茶壶的中空夹壁——拉坯做不出双层。香粉盒的微米级密合——手工打泥条做不到这个精度。器物上每一条 G2 连续曲线——靠手感的圆角，做不到数学意义上的完美。</p>
+          <p style="margin-bottom:14px;">3D 打印不是来抢饭碗的。它是来回答手工回答不了的问题的。</p>
+          <p style="margin-bottom:14px;"><strong>而且，打印只是四步里的一步。</strong></p>
+          <p style="margin-bottom:14px;">后面还有手工上釉——那是手的温度。还有 1280°C 窑烧——那是火的意志。我们只是把「成形」这一步，从「手」换成了「打印机」。其他的，原封不动。</p>
+          <p>所以，这算匠人吗？算。算数字时代的匠人。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">正窑 ZHENGYAO · 数字时代的手工精神工房</div>
+  </div>
+
+</body>
+</html>

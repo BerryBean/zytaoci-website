@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上釉这一步，是手的温度 — 正窑陶瓷艺术工作室</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#F5F0E8; font-family:'Noto Sans SC','PingFang SC',sans-serif; color:#333; }
+    .top-bar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(245,240,232,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,115,85,0.15);
+      padding:0 40px; height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .top-bar .logo { font-size:18px; font-weight:700; color:#2C2C2C; letter-spacing:4px; }
+    .top-bar .back-link { font-size:14px; color:#8B7355; text-decoration:none; letter-spacing:2px; }
+  .container { max-width:720px; margin:0 auto; padding:40px 20px 80px; }
+  .page-header { text-align:center; padding:80px 0 48px; }
+  .page-header h1 { font-size:22px; font-weight:700; color:#3d2b1a; letter-spacing:3px; }
+  .page-header .sub { font-size:14px; color:#7a6b4e; margin-top:12px; letter-spacing:2px; }
+  .feed { display:flex; flex-direction:column; gap:32px; }
+  .promo-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.08); cursor:pointer; transition:transform 0.2s; }
+  .promo-card:hover { transform:translateY(-4px); }
+  .promo-card img { width:100%; display:block; }
+  .promo-card .card-body { padding:20px 24px 24px; }
+  .promo-card .card-title { font-size:17px; font-weight:700; color:#3d2b1a; margin-bottom:8px; font-family:'Noto Serif SC',serif; }
+  .promo-card .card-excerpt { font-size:14px; color:#666; line-height:1.8; }
+  .promo-card .card-meta { font-size:12px; color:#999; margin-top:12px; letter-spacing:1px; }
+  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:200; justify-content:center; align-items:center; }
+  .modal.active { display:flex; }
+  .modal img { max-width:90vw; max-height:90vh; object-fit:contain; }
+  .modal .close { position:absolute; top:24px; right:32px; font-size:32px; color:#fff; cursor:pointer; }
+  .footer { text-align:center; padding:48px 20px; font-size:13px; color:#ccc; }
+  @media (max-width:480px) {
+    .container { padding:24px 12px 60px; }
+    .page-header { padding:72px 0 32px; }
+    .page-header h1 { font-size:18px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">正窑 · 动态</div>
+    <a class="back-link" href="../index.html">← 返回动态列表</a>
+  </div>
+
+<div class="container">
+  <div class="page-header">
+    <h1>3D 打印只是成型。上釉这一步，是手的温度。</h1>
+    <div class="sub">Day 9 — 工艺揭秘</div>
+  </div>
+
+  <div class="feed">
+    <div class="promo-card" onclick="openModal('card-01-cover.png')">
+      <img src="card-01-cover.png" alt="封面">
+      <div class="card-body">
+        <div class="card-title">3D 打印只是成型。上釉这一步，是手的温度。</div>
+        <div class="card-excerpt">有个细节，很多人不知道。3D 打印完成的只是「素坯」——粗糙的、未烧制的泥胎……</div>
+        <div class="card-meta">2026.06.13 · 4 张卡片</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-02-secret.png')">
+      <img src="card-02-secret.png" alt="素坯的秘密">
+      <div class="card-body">
+        <div class="card-title">有个细节很多人不知道</div>
+        <div class="card-excerpt">不是喷釉。是手工浸釉。把素坯浸入定制的透明釉浆中，提起来，盯着釉面流动的方向……</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-03-tear.png')">
+      <img src="card-03-tear.png" alt="泪痕纹理">
+      <div class="card-body">
+        <div class="card-title">1280°C 的魔法</div>
+        <div class="card-excerpt">定窑标志性的「泪痕」纹理。每一件都不一样。这是机器无法复制的痕迹……</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+    <div class="promo-card" onclick="openModal('card-04-soul.png')">
+      <img src="card-04-soul.png" alt="形与魂">
+      <div class="card-body">
+        <div class="card-title">形与魂</div>
+        <div class="card-excerpt">3D 打印给了器物「形」，但釉与火，给了它「魂」。釉面泪痕纹理，你觉得像什么？</div>
+        <div class="card-meta">2026.06.13</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="close" onclick="closeModal()">&times;</div>
+  <img id="modal-img" src="">
+</div>
+
+<div class="footer">© 2026 正窑陶瓷艺术工作室 · 数字时代的手工精神工房</div>
+
+<script>
+function openModal(src) {
+  document.getElementById('modal-img').src = src;
+  document.getElementById('modal').classList.add('active');
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+
+</body>
+</html>

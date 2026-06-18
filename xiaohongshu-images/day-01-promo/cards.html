@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 推广图 — 千年定窑 × 3D打印</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.card {
+  width: 1024px;
+  height: 1536px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+/* Card 1 — Cover */
+.card-1 { background: #F8F4EF; }
+.card-1 .bg-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.55;
+}
+.card-1 .overlay-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 70px;
+}
+.card-1 .logo-text {
+  font-family: 'Noto Serif SC', 'STSong', serif;
+  font-size: 42px; color: #8B7355; letter-spacing: 18px;
+  margin-bottom: 50px; font-weight: 600;
+}
+.card-1 .title {
+  font-family: 'Noto Serif SC', 'STSong', serif;
+  font-size: 52px; color: #2C2C2C; text-align: center;
+  line-height: 1.5; font-weight: 700;
+  max-width: 780px;
+}
+.card-1 .subtitle {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 24px; color: #8B7355; margin-top: 40px;
+  letter-spacing: 8px;
+}
+.card-1 .footer {
+  position: absolute; bottom: 80px; left: 0; right: 0;
+  text-align: center; font-size: 18px; color: #999;
+  letter-spacing: 6px;
+}
+
+/* Card 2 — Tea Set */
+.card-2 { background: #F8F4EF; }
+.card-2 .product-img {
+  position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+  width: 85%; height: 65%; object-fit: contain;
+}
+.card-2 .label-box {
+  position: absolute; bottom: 280px; left: 0; right: 0;
+  text-align: center;
+}
+.card-2 .label-box .chinese {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 56px; color: #2C2C2C; font-weight: 700;
+  letter-spacing: 10px;
+}
+.card-2 .label-box .english {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; color: #8B7355; margin-top: 12px;
+  letter-spacing: 4px;
+}
+.card-2 .tagline {
+  position: absolute; bottom: 180px; left: 0; right: 0;
+  text-align: center; font-size: 22px; color: #555;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.card-2 .footer {
+  position: absolute; bottom: 80px; left: 0; right: 0;
+  text-align: center; font-size: 18px; color: #999;
+  letter-spacing: 6px;
+}
+
+/* Card 3 — Incense Set */
+.card-3 { background: #F8F4EF; }
+.card-3 .product-img {
+  position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+  width: 85%; height: 65%; object-fit: contain;
+}
+.card-3 .label-box {
+  position: absolute; bottom: 280px; left: 0; right: 0;
+  text-align: center;
+}
+.card-3 .label-box .chinese {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 56px; color: #2C2C2C; font-weight: 700;
+  letter-spacing: 10px;
+}
+.card-3 .label-box .english {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px; color: #8B7355; margin-top: 12px;
+  letter-spacing: 4px;
+}
+.card-3 .tagline {
+  position: absolute; bottom: 180px; left: 0; right: 0;
+  text-align: center; font-size: 22px; color: #555;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.card-3 .footer {
+  position: absolute; bottom: 80px; left: 0; right: 0;
+  text-align: center; font-size: 18px; color: #999;
+  letter-spacing: 6px;
+}
+
+/* Card 4 — Concept */
+.card-4 { background: linear-gradient(180deg, #F8F4EF 0%, #E8E2D9 100%); }
+.card-4 .center-block {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 100px 70px;
+}
+.card-4 .big-line {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 44px; color: #2C2C2C; text-align: center;
+  line-height: 1.7; font-weight: 600;
+}
+.card-4 .divider {
+  width: 80px; height: 2px; background: #8B7355;
+  margin: 60px auto;
+}
+.card-4 .small-line {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 26px; color: #8B7355; text-align: center;
+  line-height: 1.8;
+}
+.card-4 .highlight {
+  display: inline-block;
+  background: rgba(139,115,85,0.12);
+  padding: 4px 14px; border-radius: 4px;
+  font-weight: 600;
+}
+.card-4 .footer {
+  position: absolute; bottom: 80px; left: 0; right: 0;
+  text-align: center; font-size: 18px; color: #999;
+  letter-spacing: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- Card 1 — Cover -->
+<div class="card card-1">
+  <img class="bg-img" src="../../images/tea-set-group.png" alt="">
+  <div class="overlay-center">
+    <div class="logo-text">正 窑</div>
+    <div class="title">千年定窑，<br>用 3D 打印机做出来，<br>会怎样？</div>
+    <div class="subtitle">Zhengyao Ceramic</div>
+  </div>
+  <div class="footer">@正窑陶瓷艺术工作室</div>
+</div>
+
+<!-- Card 2 — Tea Set -->
+<div class="card card-2">
+  <img class="product-img" src="../../images/tea-set-group.png" alt="">
+  <div class="label-box">
+    <div class="chinese">经典壶杯套件</div>
+    <div class="english">Classic Teapot & Cup Set</div>
+  </div>
+  <div class="tagline">手能摸到的弧度，数学能算到微米级</div>
+  <div class="footer">@正窑陶瓷艺术工作室</div>
+</div>
+
+<!-- Card 3 — Incense Set -->
+<div class="card card-3">
+  <img class="product-img" src="../../images/incense-set-group.png" alt="">
+  <div class="label-box">
+    <div class="chinese">经典炉瓶三事套件</div>
+    <div class="english">Classic Incense Ceremony Set</div>
+  </div>
+  <div class="tagline">香箸与香铲，各归其位。香炉静置，炉烟缓起。</div>
+  <div class="footer">@正窑陶瓷艺术工作室</div>
+</div>
+
+<!-- Card 4 — Concept -->
+<div class="card card-4">
+  <div class="center-block">
+    <div class="big-line">泥还是河北曲阳那片泥</div>
+    <div class="big-line">釉还是透明的定窑釉</div>
+    <div class="big-line">窑火还是 <span class="highlight">1280°C</span></div>
+    <div class="divider"></div>
+    <div class="small-line">变的，只是「成形」这一步。</div>
+    <div class="small-line">从一个工匠的手，</div>
+    <div class="small-line">变成一台 3D 打印机的手。</div>
+    <div class="small-line" style="margin-top:30px;">—— 跨越千年的对话 ——</div>
+  </div>
+  <div class="footer">@正窑陶瓷艺术工作室</div>
+</div>
+
+</body>
+</html>
